@@ -6,6 +6,7 @@
 /concept-master
 .idea
 .env
+.code
 .env.backup
 .phpunit.result.cache
 Homestead.json
