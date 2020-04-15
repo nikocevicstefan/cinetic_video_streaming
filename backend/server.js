@@ -1,23 +1,26 @@
 const express = require('express');
+const cors = require('cors');
 const logger = require('morgan');
 const movies = require('./routes/movies') ;
 const users = require('./routes/users');
-const bodyParser = require('body-parser');
 const mongoose = require('./config/database'); //database configuration
 var jwt = require('jsonwebtoken');
 const app = express();
+
 app.set('secretKey', 'nodeRestApi'); // jwt secret token
 // connection to mongodb
 mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
 app.use(logger('dev'));
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(cors());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.get('/', function(req, res){
     res.json({"tutorial" : "Build REST API with node.js"});
 });
 // public route
 app.use('/users', users);
 // private route
-app.use('/movies', validateUser, movies);
+app.use('/movies', movies);
 app.get('/favicon.ico', function(req, res) {
     res.sendStatus(204);
 });
