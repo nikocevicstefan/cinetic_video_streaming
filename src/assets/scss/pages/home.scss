@@ -1,4 +1,9 @@
 .homepage {
+
+  * {
+    /*border: 1px solid white;*/
+  }
+
   min-height: 100vh;
   background-color: $main-purple;
   color: white;
@@ -7,20 +12,20 @@
   .main-header {
     height: 75vh;
     width: 90%;
-    margin: 0 auto;
+    margin: 3rem auto;
 
     &__content {
       height: 100%;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-end;
       align-items: center;
     }
 
     &__text {
       display: flex;
       flex-direction: column;
-      height: 40%;
+      height: 60%;
       justify-content: space-between;
       justify-items: center;
       align-items: center;
@@ -31,13 +36,62 @@
       font-family: Montserrat-Bold, sans-serif;
     }
 
-    &__subtext{
+    &__subtext {
       font-size: 1.8rem;
       text-align: center;
     }
 
+    &__cta {
+      display: flex;
+      flex-direction: column;
+      width: 60%;
+      justify-content: space-between;
+      margin-top: 3rem;
+
+      * {
+        margin: 1rem;
+      }
+    }
+
     &__img {
       display: none;
+    }
+
+  }
+
+  @media screen and(min-width: 1024px) {
+    .main-header {
+      &__content {
+        flex-direction: row;
+        justify-content: space-evenly;
+      }
+
+      &__text {
+        height: 60%;
+      }
+
+      &__title {
+        font-size: 8rem;
+        font-family: Montserrat-Bold, sans-serif;
+      }
+
+      &__cta {
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+      }
+
+      &__img {
+        flex-basis: 50%;
+        display: block;
+
+        img {
+          width: 100%;
+          border-radius: 10px;
+          transform: perspective(400px) rotateY(-10deg);
+
+        }
+      }
     }
   }
 }

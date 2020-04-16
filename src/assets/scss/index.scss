@@ -9,6 +9,7 @@
 @import 'base/reset';
 @import 'base/typography';
 
+@import 'components';
 
 @import 'pages/home';
 
@@ -21,9 +22,6 @@
 @import 'layout/forms';
 
 @import 'components/buttons';
-@import 'components/carousel';
-@import 'components/cover';
-@import 'components/dropdown';
 
 @import 'pages/home';
 @import 'pages/contact';
