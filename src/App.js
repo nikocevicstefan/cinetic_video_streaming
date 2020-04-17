@@ -4,6 +4,7 @@ import axios from "axios";
 import './App.scss';
 import Home from "./Components/Pages/Home";
 import Sidebar from "./Components/Shared/Sidebar";
+import VideoContent from "./Components/Pages/VideoContent";
 
 axios.defaults.baseURL = "http://localhost:3000";
 
@@ -13,7 +14,8 @@ function App() {
         <div className="App">
             <Sidebar/>
             <Switch>
-                <Route path="/" component={Home}/>
+                <Route exact path="/" component={Home}/>
+                <Route exact path="/movies" component={VideoContent}/>
             </Switch>
         </div>
     );
