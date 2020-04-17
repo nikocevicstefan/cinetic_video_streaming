@@ -1,4 +1,5 @@
 import React from 'react';
+import {NavLink} from "react-router-dom";
 
 const Sidebar = () => {
     return (
@@ -10,11 +11,12 @@ const Sidebar = () => {
                 <h1>Cinetic.</h1>
             </div>
             <ul className="sidebar__list">
-                <li className="sidebar__item"><a className="sidebar__link" href="">Movies</a></li>
-                <li className="sidebar__item"><a className="sidebar__link" href="">TV Shows</a></li>
-                <li className="sidebar__item"><a className="sidebar__link" href="">About Us</a></li>
-                <li className="sidebar__item"><a className="sidebar__link" href="">Contact</a></li>
-                <li className="sidebar__item"><a className="sidebar__link" href="">FAQ</a></li>
+                <li className="sidebar__item"><NavLink activeClassName="active" className="sidebar__link" to="/">Home</NavLink></li>
+                <li className="sidebar__item"><NavLink activeClassName="active" className="sidebar__link" to="/movies">Movies</NavLink></li>
+                <li className="sidebar__item"><NavLink activeClassName="active" className="sidebar__link" to="/tv-shows">TV Shows</NavLink></li>
+                <li className="sidebar__item"><NavLink activeClassName="active" className="sidebar__link" to="/about-us">About Us</NavLink></li>
+                <li className="sidebar__item"><NavLink activeClassName="active" className="sidebar__link" to="/contact-us">Contact</NavLink></li>
+                <li className="sidebar__item"><NavLink activeClassName="active" className="sidebar__link" to="/faq">FAQ</NavLink></li>
             </ul>
         </div>
     );
