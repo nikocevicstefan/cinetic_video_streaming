@@ -1,7 +1,19 @@
 .action-button{
-  background-color: $secondary-purple;
+  background-color:$swatch_5;
+  font-family: Montserrat-SemiBold, sans-serif;
   color:white;
   padding: 1.5rem 3.5rem;
-  border-radius: 5px;
+  width: 100%;
+  border-radius: 50px;
   font-size: 2rem;
+  cursor: pointer;
+
+  &--accent{
+    background-color: $secondary-purple;
+  }
+
+  &:hover{
+    background-color: white;
+    color: $swatch_5;
+  }
 }
