@@ -3,6 +3,7 @@ import MainHeader from "./MainHeader";
 import ContentShowcase from "./ContentShowcase";
 import ShowcaseImageMovie from '../../../assets/img/movie10.jpg';
 import ShowcaseImageShow from '../../../assets/img/tvshow6.jpg';
+import FaqList from "./FaqList";
 
 
 const Home = () => {
@@ -11,6 +12,7 @@ const Home = () => {
             <MainHeader />
             <ContentShowcase image={ShowcaseImageMovie}  heading="Movies" text="lorem ispum dolor sit amet"/>
             <ContentShowcase image={ShowcaseImageShow} heading="TV Shows" text="lorem ispum dolor sit amet" classes="content-showcase--reverse"/>
+            <FaqList />
         </div>
     );
 };

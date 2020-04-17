@@ -1,0 +1,20 @@
+.dropdown-item{
+  width: 100%;
+  background-color: $secondary-purple;
+  color: white;
+  margin: 5px;
+  border-radius: 5px;
+
+  &__shown{
+    font-size: 3rem;
+    padding: 2rem 2rem;
+  }
+
+  &__hidden{
+    background-color: rgba(255, 255, 255, 0.82);
+    color: $secondary-purple;
+    font-size: 2rem;
+    padding: 2rem;
+    display: none;
+  }
+}
