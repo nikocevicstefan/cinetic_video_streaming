@@ -6,6 +6,7 @@
   border-radius: 5px;
 
   &__shown{
+    cursor: pointer;
     font-size: 3rem;
     padding: 2rem 2rem;
   }
@@ -15,6 +16,10 @@
     color: $secondary-purple;
     font-size: 2rem;
     padding: 2rem;
-    display: block;
+    display: none;
+
+    &.false{
+      display: block;
+    }
   }
 }
