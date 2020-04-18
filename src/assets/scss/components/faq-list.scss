@@ -1,20 +1,30 @@
-.faq-list{
+.faq-list {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  &__title{
-    font-size: 3rem;
+
+  &__title {
+    font-size: 4rem;
+    font-family: Montserrat-Bold, sans-serif;
     margin-bottom: 4rem;
   }
 
-  &__item{
+  &__item {
     width: 90%;
     margin: 0 auto;
   }
 
-  @media screen and (min-width: 1024px){
-      margin: 0 auto;
-      width: 80%;
+  @media screen and (min-width: 1024px) {
+    margin: 10rem auto;
+    width: 80%;
+    &__title {
+      font-size: 6rem;
+      font-family: Montserrat-Bold, sans-serif;
+    }
+  }
+
+  @media screen and (min-width: 1440px) {
+    font-size: 18rem;
   }
 }

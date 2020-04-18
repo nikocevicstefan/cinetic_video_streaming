@@ -7,6 +7,21 @@
   border-radius: 50px;
   font-size: 2rem;
   cursor: pointer;
+  transition: .5s all ease-in-out;
+  box-shadow: 0 3px 18px 0 rgba(0, 0, 0, 0.3);
+
+  &:hover, &:focus {
+    cursor: pointer;
+    outline: none;
+    transition: all .2s;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  &:active{
+    transform: translateY(1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+  }
 
   &--accent{
     background-color: $secondary-purple;
