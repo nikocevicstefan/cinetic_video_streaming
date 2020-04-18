@@ -8,8 +8,6 @@ import Home from "./Components/Pages/Home";
 import Sidebar from "./Components/Shared/Sidebar";
 import VideoContent from "./Components/Pages/VideoContent";
 
-axios.defaults.baseURL = "http://localhost:5000";
-
 
 function App() {
     return (
