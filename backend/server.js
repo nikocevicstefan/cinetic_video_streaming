@@ -3,6 +3,7 @@ const cors = require('cors');
 const logger = require('morgan');
 const movies = require('./routes/movies') ;
 const users = require('./routes/users');
+const faqs = require('./routes/faq');
 const mongoose = require('./config/database'); //database configuration
 var jwt = require('jsonwebtoken');
 const app = express();
@@ -17,8 +18,9 @@ app.use(express.json());
 app.get('/', function(req, res){
     res.json({"tutorial" : "Build REST API with node.js"});
 });
-// public route
+// public routes
 app.use('/users', users);
+app.use('/faqs', faqs);
 // private route
 app.use('/movies', movies);
 app.get('/favicon.ico', function(req, res) {
