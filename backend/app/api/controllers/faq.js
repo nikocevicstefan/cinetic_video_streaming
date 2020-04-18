@@ -30,11 +30,7 @@ module.exports = {
                         answer: faq.answer
                     })
                 }
-                res.json({
-                    status: "success",
-                    message: "Found list of faqs",
-                    data: faqList
-                })
+                res.json(faqList)
             }
         })
     },
