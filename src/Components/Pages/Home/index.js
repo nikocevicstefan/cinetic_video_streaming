@@ -19,8 +19,8 @@ const Home = (props) => {
     return (
         <div className="homepage">
             <MainHeader />
-            <ContentShowcase image={ShowcaseImageMovie}  heading="Movies" text="lorem ispum dolor sit amet"/>
-            <ContentShowcase image={ShowcaseImageShow} heading="TV Shows" text="lorem ispum dolor sit amet" classes="content-showcase--reverse"/>
+            <ContentShowcase image={ShowcaseImageMovie}  heading="Movies" text="lorem ispum dolor sit amet" link="/movies"/>
+            <ContentShowcase image={ShowcaseImageShow} heading="TV Shows" text="lorem ispum dolor sit amet" classes="content-showcase--reverse" link="/tv-shows"/>
             <FaqList faqs={faqs}/>
         </div>
     );

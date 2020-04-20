@@ -4,28 +4,12 @@
   justify-content: space-between;
   align-items: center;
 
-  &__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  &__item {
-    margin: 5px;
-  }
-
-
   @media screen and(min-width: 1024px) {
-    margin-left: 15vw;
+    margin-left: 180px;
     width: 95%;
-    &__grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-    }
   }
 
-  @media screen and(min-width: 1440px) {
-    &__grid {
-      grid-template-columns: repeat(5, 1fr);
-    }
+  @media screen and (min-width: 1440px){
+    margin-left: 240px;
   }
 }

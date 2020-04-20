@@ -1,11 +1,20 @@
 import React from 'react';
+import {connect} from "react-redux";
+import {selectMovie} from "../../../actions/movieAction";
 
-const ContentItem = ({movie}) => {
+
+const ContentItem = (props) => {
+    const {item, selectMovie} = props;
+
+    const selectMovieHandler = () => {
+       selectMovie(item.id)
+    }
+
     return (
-        <div className="content-item">
-            <img src={`http://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt=""/>
+        <div className="content-item" onClick={selectMovieHandler}>
+            <img src={`http://image.tmdb.org/t/p/w500/${item.poster_path}`} alt=""/>
         </div>
     );
 };
 
-export default ContentItem;
+export default connect(null, {selectMovie})(ContentItem)

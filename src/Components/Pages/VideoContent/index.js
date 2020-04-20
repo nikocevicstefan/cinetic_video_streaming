@@ -1,35 +1,30 @@
 import React, {useEffect} from 'react';
 import GridImage from '../../../assets/img/movie10.jpg';
 import ContentItem from "./ContentItem";
-import {fetchMovies} from "../../../actions/movieAction";
+import {fetchMovies, selectMovie} from "../../../actions/movieAction";
 import {connect} from "react-redux";
 import {fetchFaqs} from "../../../actions/faqAction";
+import ContentGrid from "../../Shared/ContentGrid";
+import ContentPreview from "../../Shared/ContentPreview";
 
 const VideoContent = (props) => {
-    let {movies} = props;
+    let {movies, movie, fetchMovies, selectMovie} = props;
     useEffect(() => {
-        props.fetchMovies();
+        fetchMovies();
     }, [])
+
+
     return (
         <div className="video-content">
-            <div className="video-content__grid">
-                {
-                    movies.map(movie => {
-                        return (
-                            <div className="video-content__item">
-                                <ContentItem movie={movie}/>
-                            </div>
-                        )
-                    })
-                }
-            </div>
+            <ContentPreview content={movie}/>
+            <ContentGrid content={movies}/>
         </div>
     );
 };
 
-
 const mapStateToProps = (state) => ({
-    movies: state.movie.movies
+    movies: state.movie.movies,
+    movie: state.movie.movie
 });
 
 
