@@ -6,9 +6,7 @@ import {selectMovie} from "../../../actions/movieAction";
 const ContentItem = (props) => {
     const {item, selectMovie} = props;
 
-    const selectMovieHandler = () => {
-       selectMovie(item.id)
-    }
+    const selectMovieHandler = () => selectMovie(item.id)
 
     return (
         <div className="content-item" onClick={selectMovieHandler}>

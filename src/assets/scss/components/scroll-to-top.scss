@@ -1,13 +1,17 @@
-.action-button{
-  background-color:$secondary-purple;
-  font-family: Montserrat-SemiBold, sans-serif;
-  color:white;
-  padding: 1.5rem 3.5rem;
-  width: 100%;
-  border-radius: 50px;
-  font-size: 2rem;
+.scroll-to-top{
   cursor: pointer;
-  transition: .5s all ease-in-out;
+  transition: 0.5s ease-in-out all;
+  background: $secondary-purple;
+  img{
+    width: 100%;
+  }
+  padding: 1rem;
+  position: fixed;
+  right: 20px;
+  bottom: 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
   box-shadow: $box-shadow-purple;
 
   &:hover, &:focus {

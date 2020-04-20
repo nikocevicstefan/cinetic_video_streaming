@@ -7,6 +7,7 @@ import './App.scss';
 import Home from "./Components/Pages/Home";
 import Sidebar from "./Components/Shared/Sidebar";
 import VideoContent from "./Components/Pages/VideoContent";
+import ScrollToTop from "./Components/Shared/ScrollToTop";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
                     <Route exact path="/" component={Home}/>
                     <Route exact path="/movies" component={VideoContent}/>
                 </Switch>
+                <ScrollToTop />
             </div>
         </Provider>
     );

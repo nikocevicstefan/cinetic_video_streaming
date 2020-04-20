@@ -1,14 +1,11 @@
 .content-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-
-
-  &__item {
-    margin: 5px;
-  }
-
+  grid-gap: 5px 10px;
 
   @media screen and(min-width: 1024px) {
+
+    grid-gap: 2rem 2.6rem;
     grid-template-columns: repeat(4, 1fr);
   }
 

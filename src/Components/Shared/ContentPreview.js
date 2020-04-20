@@ -3,6 +3,7 @@ import ActionButton from "./ActionButton";
 import dummyImage from '../../assets/img/movie10.jpg';
 
 const ContentPreview = (props) => {
+
     const {content} = props;
     return (
         <div className="content-preview">

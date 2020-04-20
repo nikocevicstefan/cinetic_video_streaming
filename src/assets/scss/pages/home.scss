@@ -57,7 +57,7 @@
       margin-top: 7rem;
 
       * {
-        margin: 1rem;
+        margin: 1rem 0;
       }
     }
 
@@ -141,6 +141,9 @@
         flex-direction: row;
         justify-content: flex-start;
         width: 100%;
+        * {
+          margin: 1rem 1rem;
+        }
       }
 
       &__img {
