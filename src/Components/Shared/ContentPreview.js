@@ -3,7 +3,6 @@ import ActionButton from "./ActionButton";
 import dummyImage from '../../assets/img/movie10.jpg';
 
 const ContentPreview = (props) => {
-
     const {content} = props;
     return (
         <div className="content-preview">
@@ -11,7 +10,7 @@ const ContentPreview = (props) => {
                 <div className="content-preview__logo--mobile">
                     <h1>Cinetic.</h1>
                 </div>
-                <h1 className="content-preview__title">{content.title}</h1>
+                <h1 className="content-preview__title">{content.name ? content.name: content.title}</h1>
                 <div className="content-preview__description">{content.overview}
                 </div>
                 <div className="content-preview__cta">

@@ -22,7 +22,6 @@ const Sidebar = () => {
                 <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link" to="/movies">Movies</NavLink></li>
                 <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link" to="/tv-shows">TV Shows</NavLink></li>
                 <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link" to="/about-us">About Us</NavLink></li>
-                <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link" to="/contact-us">Contact</NavLink></li>
                 <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link" to="/faq">FAQ</NavLink></li>
             </ul>
         </div>

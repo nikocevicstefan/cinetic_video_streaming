@@ -1,18 +1,15 @@
 import React, {useEffect} from 'react';
-import GridImage from '../../../assets/img/movie10.jpg';
-import ContentItem from "./ContentItem";
 import {fetchMovies, selectMovie} from "../../../actions/movieAction";
 import {connect} from "react-redux";
-import {fetchFaqs} from "../../../actions/faqAction";
 import ContentGrid from "../../Shared/ContentGrid";
 import ContentPreview from "../../Shared/ContentPreview";
 
-const VideoContent = (props) => {
+const Movies = (props) => {
     let {movies, movie, fetchMovies, selectMovie} = props;
+
     useEffect(() => {
         fetchMovies();
     }, [])
-
 
     return (
         <div className="video-content">
@@ -28,5 +25,5 @@ const mapStateToProps = (state) => ({
 });
 
 
-export default connect(mapStateToProps, {fetchMovies})(VideoContent);
+export default connect(mapStateToProps, {fetchMovies})(Movies);
 

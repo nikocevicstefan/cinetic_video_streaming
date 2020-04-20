@@ -1,5 +1,5 @@
 import React from 'react';
-import ContentItem from "../Pages/VideoContent/ContentItem";
+import ContentItem from "./ContentItem";
 
 const ContentGrid = (props) => {
     const {content} = props;
