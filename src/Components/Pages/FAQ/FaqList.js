@@ -1,6 +1,5 @@
 import React from 'react';
 import DropdownItem from "../../Shared/DropdownItem";
-
 const FaqList = ({faqs}) => {
     return (
         <div className="faq-list">
