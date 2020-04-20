@@ -6,6 +6,7 @@ import './App.scss';
 import Home from "./Components/Pages/Home";
 import Sidebar from "./Components/Shared/Sidebar";
 import FAQ from "./Components/Pages/FAQ";
+import About from './Components/Pages/About'
 import Movies from "./Components/Pages/Movies";
 import TVShows from "./Components/Pages/TVShows";
 import ScrollToTop from "./Components/Shared/ScrollToTop";
@@ -21,6 +22,7 @@ function App() {
                     <Route exact path="/movies" component={Movies}/>
                     <Route exact path="/tv-shows" component={TVShows}/>
                     <Route exact path="/faq" component={FAQ}/>
+                    <Route exact path="/about-us" component={About}/>
                 </Switch>
                 <ScrollToTop />
             </div>
