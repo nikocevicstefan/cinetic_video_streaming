@@ -1,5 +1,10 @@
 import axios from 'axios';
-import {FETCH_MOVIES, SELECT_MOVIE} from "./types";
+import {
+    FETCH_MOVIES,
+    SELECT_MOVIE,
+    FETCH_MOVIE_GENRES
+} from "./types";
+
 const API_KEY = 'cc5e64c3b7740570da7c503aa33d7a9e&language';
 
 export const fetchMovies = () => async dispatch => {
@@ -19,6 +24,14 @@ export const selectMovie = (movieId) => async dispatch =>{
     dispatch({
         type: SELECT_MOVIE,
         payload: movie.data
+    })
+}
+
+export const fetchMovieGenres = () => async dispatch => {
+    let movieGenres = await axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US`);
+    dispatch({
+        type: FETCH_MOVIE_GENRES,
+        payload: movieGenres.data.genres
     })
 }
 

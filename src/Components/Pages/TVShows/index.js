@@ -2,13 +2,19 @@ import React, {useEffect} from 'react';
 import {connect} from "react-redux";
 import ContentGrid from "../../Shared/ContentGrid";
 import ContentPreview from "../../Shared/ContentPreview";
-import {fetchShows} from "../../../actions/tvshowAction";
+import {fetchShows, fetchShowGenres} from "../../../actions/tvshowAction";
 
 const TVShows = (props) => {
-    let {shows, show, fetchShows, selectShow} = props;
+    let {
+        shows,
+        show,
+        fetchShows,
+        fetchShowGenres
+    } = props;
 
     useEffect(() => {
         fetchShows();
+        fetchShowGenres();
     }, [])
 
     return (
@@ -21,9 +27,10 @@ const TVShows = (props) => {
 
 const mapStateToProps = (state) => ({
     shows: state.show.shows,
+    genres: state.show.genres,
     show: state.show.show
 });
 
 
-export default connect(mapStateToProps, {fetchShows})(TVShows);
+export default connect(mapStateToProps, {fetchShows, fetchShowGenres})(TVShows);
 

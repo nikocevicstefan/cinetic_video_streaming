@@ -1,14 +1,21 @@
 import React, {useEffect} from 'react';
-import {fetchMovies, selectMovie} from "../../../actions/movieAction";
+import {fetchMovies, fetchMovieGenres} from "../../../actions/movieAction";
 import {connect} from "react-redux";
 import ContentGrid from "../../Shared/ContentGrid";
 import ContentPreview from "../../Shared/ContentPreview";
 
 const Movies = (props) => {
-    let {movies, movie, fetchMovies, selectMovie} = props;
+    let {
+        movies,
+        genres,
+        movie,
+        fetchMovies,
+        fetchMovieGenres
+    } = props;
 
     useEffect(() => {
         fetchMovies();
+        fetchMovieGenres();
     }, [])
 
     return (
@@ -21,9 +28,10 @@ const Movies = (props) => {
 
 const mapStateToProps = (state) => ({
     movies: state.movie.movies,
+    genres: state.movie.genres,
     movie: state.movie.movie
 });
 
 
-export default connect(mapStateToProps, {fetchMovies})(Movies);
+export default connect(mapStateToProps, {fetchMovies, fetchMovieGenres})(Movies);
 
