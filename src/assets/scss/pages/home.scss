@@ -10,7 +10,7 @@
   .main-header {
     height: 95vh;
     width: 100%;
-    margin: 3rem auto;
+    margin: 0 auto 3rem auto;
 
     &__logo--mobile {
       font-size: 2rem;
@@ -113,7 +113,7 @@
     margin-left: 180px;
     .main-header {
       height: 100vh;
-
+      margin: 0;
       &__logo--mobile {
         display: none;
       }
