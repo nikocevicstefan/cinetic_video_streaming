@@ -3,6 +3,7 @@ import {fetchMovies, fetchMovieGenres} from "../../../actions/movieAction";
 import {connect} from "react-redux";
 import ContentGrid from "../../Shared/ContentGrid";
 import ContentPreview from "../../Shared/ContentPreview";
+import FilterContent from "../../Shared/FilterContent";
 
 const Movies = (props) => {
     let {
@@ -21,6 +22,7 @@ const Movies = (props) => {
     return (
         <div className="video-content">
             <ContentPreview content={movie}/>
+            <FilterContent genres={genres} type="movie"/>
             <ContentGrid content={movies}/>
         </div>
     );
