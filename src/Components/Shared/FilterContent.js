@@ -1,15 +1,20 @@
 import React from 'react';
 import Search from '../../assets/img/icons/search.svg';
+import {connect} from 'react-redux';
+import {filterMovies} from "../../actions/movieAction";
+
 const FilterContent = (props) => {
-    const {genres} = props;
+    const {genres, type, filterMovies} = props;
+
+    const filterMoviesHandler = (event) => filterMovies(event.target.value);
+
     return (
         <div className="filter-content">
             <div className="filter-content__categories">
-                <select name="" id="">
-                    <option value="" selected disabled hidden>Choose genre</option>
+                <select name="" id="" onChange={filterMoviesHandler}>
                     {
                         genres.map(genre => {
-                            return <option value={genre.id}>{genre.name}</option>
+                            return <option value={genre.id} key={genre.id}>{genre.name}</option>
                         })
                     }
                 </select>
@@ -22,4 +27,4 @@ const FilterContent = (props) => {
     );
 };
 
-export default FilterContent;
+export default connect(null, {filterMovies})(FilterContent);
