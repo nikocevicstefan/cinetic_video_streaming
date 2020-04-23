@@ -1,4 +1,11 @@
-import {FETCH_MOVIE_GENRES, FETCH_MOVIES, FILTER_MOVIES, SELECT_MOVIE} from "../actions/types";
+import {
+    FETCH_MOVIE_GENRES,
+    FETCH_MOVIES,
+    FILTER_MOVIES_BY_GENRE,
+    FILTER_MOVIES_BY_NAME,
+    SET_FILTERED_MOVIES,
+    SELECT_MOVIE
+} from "../actions/types";
 
 const initialState = {
     movies: [],
@@ -24,11 +31,21 @@ export default function(state = initialState, action){
                 ...state,
                 movie: action.payload
             }
-        case FILTER_MOVIES:
+        case FILTER_MOVIES_BY_GENRE:
             return {
                 ...state,
                 filtered: state.movies.filter(movie => movie.genre_ids.includes(parseInt(action.payload)))
             }
+        /*case FILTER_MOVIES_BY_NAME:
+            return {
+                ...state,
+                searched: state.filtered.filter(movie => movie.title.includes(action.payload))
+            }
+        case SET_FILTERED_MOVIES:
+            return {
+                ...state,
+                filtered: state.movies
+            }*/
         default:
             return state;
     }

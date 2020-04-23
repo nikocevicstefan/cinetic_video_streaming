@@ -12,19 +12,20 @@ const Movies = (props) => {
         genres,
         movie,
         fetchMovies,
-        fetchMovieGenres
+        fetchMovieGenres,
     } = props;
 
     useEffect(() => {
         fetchMovies();
         fetchMovieGenres();
     }, [])
+    
 
     return (
         <div className="video-content">
             <ContentPreview content={movie}/>
             <FilterContent genres={genres} type="movie"/>
-            <ContentGrid content={filtered.length > 0 ? filtered: movies}/>
+            <ContentGrid content={filtered.length > 0 ? filtered : movies}/>
         </div>
     );
 };

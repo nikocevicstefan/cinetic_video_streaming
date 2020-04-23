@@ -1,10 +1,17 @@
 import axios from 'axios';
-import {FETCH_MOVIE_GENRES, FETCH_MOVIES, FILTER_MOVIES, SELECT_MOVIE} from "./types";
+import {
+    FETCH_MOVIE_GENRES,
+    FETCH_MOVIES,
+    FILTER_MOVIES_BY_GENRE,
+    FILTER_MOVIES_BY_NAME,
+    SET_FILTERED_MOVIES,
+    SELECT_MOVIE
+} from "./types";
 
-const API_KEY = 'cc5e64c3b7740570da7c503aa33d7a9e&language';
+const API_KEY = 'cc5e64c3b7740570da7c503aa33d7a9e';
 
 export const fetchMovies = () => async dispatch => {
-    const movies = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}=en-US&page=1`);
+    const movies = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`);
     dispatch({
         type: FETCH_MOVIES,
         payload: movies.data.results
@@ -14,9 +21,7 @@ export const fetchMovies = () => async dispatch => {
     dispatch(selectMovie(movies.data.results[0].id));
 }
 
-
-
-export const selectMovie = (movieId) => async dispatch =>{
+export const selectMovie = (movieId) => async dispatch => {
     let movie = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=en-US`);
     dispatch({
         type: SELECT_MOVIE,
@@ -32,10 +37,16 @@ export const fetchMovieGenres = () => async dispatch => {
     })
 }
 
-export const filterMovies = (categoryId) => async dispatch => {
+export const filterMoviesByGenre = (categoryId) => dispatch => {
     dispatch({
-        type: FILTER_MOVIES,
+        type: FILTER_MOVIES_BY_GENRE,
         payload: categoryId
     })
 }
+
+/*export const setFilteredMovies = () => dispatch => {
+    dispatch({
+        type: SET_FILTERED_MOVIES
+    })
+}*/
 

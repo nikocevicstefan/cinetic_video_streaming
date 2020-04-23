@@ -8,6 +8,7 @@ import FilterContent from "../../Shared/FilterContent";
 const TVShows = (props) => {
     let {
         shows,
+        filtered,
         genres,
         show,
         fetchShows,
@@ -23,13 +24,14 @@ const TVShows = (props) => {
         <div className="video-content">
             <ContentPreview content={show}/>
             <FilterContent genres={genres} type="tv"/>
-            <ContentGrid content={shows}/>
+            <ContentGrid content={filtered.length > 0 ? filtered : shows}/>
         </div>
     );
 };
 
 const mapStateToProps = (state) => ({
     shows: state.show.shows,
+    filtered: state.show.filtered,
     genres: state.show.genres,
     show: state.show.show
 });

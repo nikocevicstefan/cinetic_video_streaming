@@ -2,10 +2,11 @@ import axios from 'axios';
 import {
     FETCH_SHOWS,
     SELECT_SHOW,
-    FETCH_SHOW_GENRES
+    FETCH_SHOW_GENRES,
+    FILTER_SHOWS_BY_GENRE
 } from "./types";
 
-const API_KEY = 'cc5e64c3b7740570da7c503aa33d7a9e&language';
+const API_KEY = 'cc5e64c3b7740570da7c503aa33d7a9e';
 
 export const fetchShows = () => async dispatch => {
     const shows = await axios.get(`    https://api.themoviedb.org/3/tv/popular?api_key=${API_KEY}&language=en-US&page=1`);
@@ -33,6 +34,13 @@ export const fetchShowGenres = () => async dispatch => {
     dispatch({
         type: FETCH_SHOW_GENRES,
         payload: showGenres.data.genres
+    })
+}
+
+export const filterShowsByGenre = (genreId) => dispatch => {
+    dispatch({
+        type: FILTER_SHOWS_BY_GENRE,
+        payload: genreId
     })
 }
 
