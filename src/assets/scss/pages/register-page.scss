@@ -1,0 +1,39 @@
+.register-page{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 50vh;
+  max-height: 100vh;
+  margin-top: 5rem;
+
+  &__title{
+    font-size: 5rem;
+    color: white;
+    text-align: center;
+  }
+  &__card{
+    margin-top: 5rem;
+    width: 90%;
+  }
+
+  &__button{
+    margin: 4rem auto;
+    width: 50%;
+  }
+
+  @media screen and (min-width: 1024px){
+    margin-left: 180px;
+    &__title{
+      font-size: 6rem;
+    }
+    &__card{
+      width: 50%;
+
+    }
+  }
+  @media screen and (min-width: 1440px){
+    margin-left: 240px;
+  }
+}

@@ -10,6 +10,8 @@ import About from './Components/Pages/About'
 import Movies from "./Components/Pages/Movies";
 import TVShows from "./Components/Pages/TVShows";
 import ScrollToTop from "./Components/Shared/ScrollToTop";
+import Register from "./Components/Pages/Register";
+import Login from "./Components/Pages/Login";
 
 
 function App() {
@@ -23,6 +25,8 @@ function App() {
                     <Route exact path="/tv-shows" component={TVShows}/>
                     <Route exact path="/faq" component={FAQ}/>
                     <Route exact path="/about-us" component={About}/>
+                    <Route exact path="/register" component={Register}/>
+                    <Route exact path="/login" component={Login}/>
                 </Switch>
                 <ScrollToTop />
             </div>

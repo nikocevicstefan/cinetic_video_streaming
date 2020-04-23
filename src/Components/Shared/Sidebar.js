@@ -10,7 +10,7 @@ const Sidebar = () => {
         setSidebar(!sidebar);
     }
     return (
-        <div className={`sidebar ${sidebar && 'opened'}`}>
+        <div className={`sidebar ${sidebar && 'opened'}`} onClick={toggleSidebar}>
             <div className="sidebar__toggler" onClick={toggleSidebar}>
                 <img src={sidebar ? closeSidebar : openSidebar} alt="sidebar toggler"/>
             </div>
@@ -23,6 +23,8 @@ const Sidebar = () => {
                 <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link" to="/tv-shows">TV Shows</NavLink></li>
                 <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link" to="/about-us">About Us</NavLink></li>
                 <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link" to="/faq">FAQ</NavLink></li>
+                <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link" to="/login">Login</NavLink></li>
+                <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link" to="/register">Register</NavLink></li>
             </ul>
         </div>
     );

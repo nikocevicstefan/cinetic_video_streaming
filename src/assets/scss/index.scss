@@ -11,10 +11,12 @@
 
 @import 'components';
 
-@import 'pages/home';
-@import 'pages/video-content';
-@import 'pages/faq-page';
-@import 'pages/about-us';
+@import './pages/home';
+@import './pages/video-content';
+@import './pages/faq-page';
+@import './pages/about-us';
+@import './pages/register-page';
+@import './pages/login-page';
 
 /*
 @import 'layout/navigation';
