@@ -12,10 +12,10 @@ const ContentShowcase = (props) => {
             </div>
             <div className="content-showcase__text">
                 <h1 className="content-showcase__heading">{heading}</h1>
-                <p className="content-showcase__text">{text}</p>
+                <p className="content-showcase__subtext">{text}</p>
                 <div className="content-showcase__button">
                     <Link to={link}>
-                    <ActionButton text="Browse"/>
+                        <ActionButton text="Browse"/>
                     </Link>
                 </div>
             </div>
