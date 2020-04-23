@@ -18,13 +18,20 @@ const Sidebar = () => {
                 <h1>Cinetic.</h1>
             </div>
             <ul className="sidebar__list">
-                <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link" to="/">Home</NavLink></li>
-                <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link" to="/movies">Movies</NavLink></li>
-                <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link" to="/tv-shows">TV Shows</NavLink></li>
-                <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link" to="/about-us">About Us</NavLink></li>
-                <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link" to="/faq">FAQ</NavLink></li>
-                <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link" to="/login">Login</NavLink></li>
-                <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link" to="/register">Register</NavLink></li>
+                <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link"
+                                                       to="/">Home</NavLink></li>
+                <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link"
+                                                       to="/movies">Movies</NavLink></li>
+                <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link"
+                                                       to="/tv-shows">TV Shows</NavLink></li>
+                <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link"
+                                                       to="/about-us">About Us</NavLink></li>
+                <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link"
+                                                       to="/faq">FAQ</NavLink></li>
+                <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link"
+                                                       to="/login">Login</NavLink></li>
+                <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link"
+                                                       to="/register">Register</NavLink></li>
             </ul>
         </div>
     );

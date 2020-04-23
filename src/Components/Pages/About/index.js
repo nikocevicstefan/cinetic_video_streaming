@@ -1,26 +1,35 @@
 import React from 'react';
 import Map from '../../../assets/img/map.png';
+import aboutImage from '../../../assets/img/illustrations/undraw_video_streaming_yyld.svg'
+
 const About = () => {
     return (
         <div className="about-us">
-            <div className="about-us__text">
-            <h1 className="about-us__heading">About Us</h1>
-                <p className="about-us__details">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Assumenda beatae consequatur culpa doloribus facere illum iste
-                    minima nostrum obcaecati officia placeat, quasi qui quibusdam ratione reiciendis
-                    sequi, soluta unde voluptatem.</p>
-                <p className="about-us__details">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquam assumenda
-                    dignissimos eaque enim illum ipsam iste iure labore molestiae necessitatibus odio odit, optio
-                    provident quaerat quo, rem ullam veniam!
-                </p>
+            <div className="about-us__main">
+                <div className="about-us__text">
+                    <h1 className="about-us__heading">About Us</h1>
+                    <p className="about-us__details">Cinetic is a streaming service that offers a wide variety of
+                        award-winning TV shows, movies, anime, documentaries, and more on thousands of
+                        internet-connected
+                        devices.
+                    </p>
+                    <p className="about-us__details">You can watch as much as you want, whenever you want without a
+                        single
+                        commercial – all for one low monthly price. There's always something new to discover and new TV
+                        shows and movies are added every week!
+                    </p>
+                </div>
+                <div className="about-us__image">
+                    <img src={aboutImage} alt="about us cover image"/>
+                </div>
             </div>
-            <h2 className="about-us__subheading">Where and how to contact us</h2>
             <div className="about-us__contact">
                 <div className="about-us__contact-info">
+                    <h2 className="about-us__subheading">Contact us</h2>
                     <ul>
-                        <li>Phone: 069602930</li>
-                        <li>Email: nikocevicstefan@gmail.com</li>
-                        <li>Address: Crna Gora,Bar Marsala Tita 23/5</li>
+                        <li> <strong> Phone: </strong> 069602930</li>
+                        <li> <strong> Email: </strong> nikocevicstefan@gmail.com</li>
+                        <li> <strong> Address: </strong> Crna Gora, Bar 85000</li>
                     </ul>
                 </div>
                 <div className="about-us__map">
