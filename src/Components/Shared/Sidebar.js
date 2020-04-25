@@ -6,6 +6,10 @@ import closeSidebar from '../../assets/img/icons/back.svg'
 const Sidebar = () => {
 
     const [sidebar, setSidebar] = useState(false);
+
+    const logoutHandler = () =>{
+        window.localStorage.removeItem('loggedInUser');
+    }
     const toggleSidebar = () => {
         setSidebar(!sidebar);
     }
@@ -32,6 +36,7 @@ const Sidebar = () => {
                                                        to="/login">Login</NavLink></li>
                 <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link"
                                                        to="/register">Register</NavLink></li>
+                <li className="sidebar__item" onClick={logoutHandler} style={{cursor: "pointer"}}>Logout</li>
             </ul>
         </div>
     );

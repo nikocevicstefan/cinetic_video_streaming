@@ -14,5 +14,11 @@ export const FETCH_SHOW_GENRES = 'FETCH_SHOW_GENRES';
 export const FILTER_SHOWS_BY_GENRE = 'FILTER_SHOWS';
 export const FILTER_SHOWS_BY_NAME = 'FILTER_SHOWS_BY_NAME';
 
+//user actions
+
+export const REGISTER = 'REGISTER'
+export const LOGIN = 'LOGIN'
+export const LOGOUT = 'LOGOUT'
+
 
 

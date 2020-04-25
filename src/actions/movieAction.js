@@ -3,37 +3,42 @@ import {
     FETCH_MOVIE_GENRES,
     FETCH_MOVIES,
     FILTER_MOVIES_BY_GENRE,
-    FILTER_MOVIES_BY_NAME,
-    SET_FILTERED_MOVIES,
     SELECT_MOVIE
 } from "./types";
 
 const API_KEY = 'cc5e64c3b7740570da7c503aa33d7a9e';
 
 export const fetchMovies = () => async dispatch => {
-    const movies = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`);
-    dispatch({
-        type: FETCH_MOVIES,
-        payload: movies.data.results
-    })
+    try {
+        const {data: {results: movies}} = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`);
 
-    //set the first movie as default selected movie
-    dispatch(selectMovie(movies.data.results[0].id));
+        dispatch({
+            type: FETCH_MOVIES,
+            payload: movies
+        })
+
+        //dispatch the first movie to the reducer and set as default selected movie
+        dispatch(selectMovie(movies[0].id));
+    } catch (e) {
+        //to be expanded
+        console.error(e);
+    }
+
 }
 
 export const selectMovie = (movieId) => async dispatch => {
-    let movie = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=en-US`);
+    let {data} = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=en-US`);
     dispatch({
         type: SELECT_MOVIE,
-        payload: movie.data
+        payload: data
     })
 }
 
 export const fetchMovieGenres = () => async dispatch => {
-    let movieGenres = await axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US`);
+    let {data} = await axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US`);
     dispatch({
         type: FETCH_MOVIE_GENRES,
-        payload: movieGenres.data.genres
+        payload: data.genres
     })
 }
 
@@ -43,10 +48,4 @@ export const filterMoviesByGenre = (categoryId) => dispatch => {
         payload: categoryId
     })
 }
-
-/*export const setFilteredMovies = () => dispatch => {
-    dispatch({
-        type: SET_FILTERED_MOVIES
-    })
-}*/
 

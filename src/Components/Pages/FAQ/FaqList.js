@@ -1,5 +1,5 @@
 import React from 'react';
-import DropdownItem from "../../Shared/DropdownItem";
+import DropdownItem from "Components/Shared/DropdownItem";
 const FaqList = ({faqs}) => {
     return (
         <div className="faq-list">

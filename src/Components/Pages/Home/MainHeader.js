@@ -1,6 +1,6 @@
 import React from 'react';
-import ActionButton from "../../Shared/ActionButton";
-import HeaderImg from "../../../assets/img/header2.jpg"
+import ActionButton from "Components/Shared/ActionButton";
+import HeaderImg from "assets/img/header2.jpg"
 
 const MainHeader = () => {
     return (

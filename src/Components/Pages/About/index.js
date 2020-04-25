@@ -1,6 +1,6 @@
 import React from 'react';
-import Map from '../../../assets/img/map.png';
-import aboutImage from '../../../assets/img/illustrations/undraw_video_streaming_yyld.svg'
+import Map from 'assets/img/map.png';
+import aboutImage from 'assets/img/illustrations/undraw_video_streaming_yyld.svg'
 
 const About = () => {
     return (

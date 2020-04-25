@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react';
-import {fetchMovies, fetchMovieGenres} from "../../../actions/movieAction";
+import {fetchMovies, fetchMovieGenres} from "actions/movieAction";
 import {connect} from "react-redux";
-import ContentGrid from "../../Shared/ContentGrid";
-import ContentPreview from "../../Shared/ContentPreview";
-import FilterContent from "../../Shared/FilterContent";
+import ContentGrid from "Components/Shared/ContentGrid";
+import ContentPreview from "Components/Shared/ContentPreview";
+import FilterContent from "Components/Shared/FilterContent";
 
 const Movies = (props) => {
     let {

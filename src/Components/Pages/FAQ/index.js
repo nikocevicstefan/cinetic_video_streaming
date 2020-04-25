@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import FaqList from "./FaqList";
 import {connect} from "react-redux";
-import {fetchFaqs} from "../../../actions/faqAction";
+import {fetchFaqs} from "actions/faqAction";
 
 const FAQ = (props) => {
     const {faqs} = props;
