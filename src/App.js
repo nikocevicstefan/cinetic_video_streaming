@@ -12,6 +12,7 @@ import TVShows from "./Components/Pages/TVShows";
 import ScrollToTop from "./Components/Shared/ScrollToTop";
 import Register from "./Components/Pages/Register";
 import Login from "./Components/Pages/Login";
+import NotFound from "./Components/Pages/NotFound";
 
 const redirect = () => window.location.replace('/');
 
@@ -36,6 +37,7 @@ const App = () => {
                     <Route exact path="/about-us" component={About}/>
                     <Route exact path="/register" component={user ? redirect : Register}/>
                     <Route exact path="/login" component={user ? redirect : Login}/>
+                    <Route component={NotFound}/>
                 </Switch>
                 <ScrollToTop/>
             </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import ActionButton from "Components/Shared/ActionButton";
 import HeaderImg from "assets/img/header2.jpg"
+import {Link} from "react-router-dom";
 
 const MainHeader = () => {
     return (
@@ -13,8 +14,12 @@ const MainHeader = () => {
                     <h1 className="main-header__title">Unlimited movies, TV shows, and more.</h1>
                     <p className="main-header__subtext">The main streaming service for your favorite content</p>
                     <div className="main-header__cta">
-                        <ActionButton text="Subscribe"/>
-                        <ActionButton text="Watch Now" classes="action-button--accent"/>
+                        <Link to='/register'>
+                            <ActionButton text="Subscribe"/>
+                        </Link>
+                        <Link to='/movies'>
+                            <ActionButton text="Watch Now" classes="action-button--accent"/>
+                        </Link>
                     </div>
                 </div>
                 <div className="main-header__img">

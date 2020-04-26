@@ -1,0 +1,41 @@
+.not-found{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 90vh;
+  &__content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 40vh;
+  }
+  &__title{
+    font-size: 6rem;
+    font-family: Montserrat-Bold, sans-serif;
+    color: white;
+  }
+
+  &__text{
+    font-size: 2rem;
+    color: white;
+  }
+
+  @media screen and(min-width: 1024px) {
+    height: 100vh;
+    margin-left: 180px;
+    &__title {
+      font-size: 10rem;
+    }
+  }
+
+  @media screen and(min-width: 1800px){
+
+    &__title {
+      font-size: 12rem;
+    }
+
+  }
+}
