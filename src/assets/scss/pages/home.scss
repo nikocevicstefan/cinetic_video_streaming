@@ -1,7 +1,6 @@
 .homepage {
   min-height: 100vh;
   color: white;
-  width: 100vw;
   max-width: 1900px;
   display: flex;
   flex-direction: column;
@@ -114,10 +113,11 @@
   }
 
   @media screen and(min-width: 1024px) {
-    margin-left: 180px;
+
     .main-header {
       height: 100vh;
       margin: 0;
+      padding: 0;
       &__logo--mobile {
         display: none;
       }
@@ -125,7 +125,7 @@
       &__content {
         flex-direction: row;
         justify-content: space-evenly;
-        width: 90%;
+        width: 100%;
       }
 
       &__text {
@@ -165,7 +165,7 @@
     .content-showcase {
       display: flex;
       flex-direction: row;
-
+      justify-content: left;
       &__image {
         flex-basis: 50%;
         img {
@@ -190,7 +190,6 @@
   }
 
   @media screen and(min-width: 1800px) {
-    margin-left: 240px;
 
     .main-header {
       height: 95vh;

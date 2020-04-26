@@ -1,0 +1,11 @@
+.page-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  @media screen and (min-width: 1024px) {
+    padding: 0 6rem;
+    margin-left: 180px;
+  }
+  @media screen and (min-width: 1800px) {
+    margin-left: 220px;
+  }
+}

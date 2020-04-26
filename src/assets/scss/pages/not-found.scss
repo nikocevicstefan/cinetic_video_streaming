@@ -24,18 +24,14 @@
   }
 
   @media screen and(min-width: 1024px) {
-    height: 100vh;
-    margin-left: 180px;
     &__title {
       font-size: 10rem;
     }
   }
 
   @media screen and(min-width: 1800px){
-
     &__title {
       font-size: 12rem;
     }
-
   }
 }

@@ -6,11 +6,11 @@ import closeSidebar from '../../assets/img/icons/back.svg'
 const Sidebar = () => {
 
     const [sidebar, setSidebar] = useState(false);
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState(true);
 
     useEffect(function fetchUser(){
         const loggedInUser = window.localStorage.getItem('loggedInUser');
-        setUser(JSON.parse(loggedInUser));
+        //setUser(JSON.parse(loggedInUser));
     }, []);
 
     const logoutHandler = () =>{

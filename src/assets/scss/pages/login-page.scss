@@ -22,7 +22,6 @@
   }
 
   @media screen and (min-width: 1024px){
-    margin-left: 180px;
     &__title{
       font-size: 6rem;
     }
@@ -30,8 +29,5 @@
       width: 30%;
 
     }
-  }
-  @media screen and (min-width: 1800px){
-    margin-left: 240px;
   }
 }

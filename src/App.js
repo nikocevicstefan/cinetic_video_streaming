@@ -13,32 +13,35 @@ import ScrollToTop from "./Components/Shared/ScrollToTop";
 import Register from "./Components/Pages/Register";
 import Login from "./Components/Pages/Login";
 import NotFound from "./Components/Pages/NotFound";
+import Wrapper from "Components/Pages/Wrapper";
 
 const redirect = () => window.location.replace('/');
 
 const App = () => {
 
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState(true);
 
     useEffect(function fetchUser() {
         const loggedInUser = window.localStorage.getItem('loggedInUser');
-        setUser(JSON.parse(loggedInUser));
+        //setUser(JSON.parse(loggedInUser));
     }, []);
 
     return (
         <Provider store={store}>
             <div className="App">
                 <Sidebar/>
-                <Switch>
-                    <Route exact path="/" component={Home}/>
-                    <Route exact path="/movies" component={user ? Movies : redirect}/>
-                    <Route exact path="/tv-shows" component={user ? TVShows : redirect}/>
-                    <Route exact path="/faq" component={FAQ}/>
-                    <Route exact path="/about-us" component={About}/>
-                    <Route exact path="/register" component={user ? redirect : Register}/>
-                    <Route exact path="/login" component={user ? redirect : Login}/>
-                    <Route component={NotFound}/>
-                </Switch>
+                <Wrapper>
+                    <Switch>
+                        <Route exact path="/" component={Home}/>
+                        <Route exact path="/movies" component={user ? Movies : redirect}/>
+                        <Route exact path="/tv-shows" component={user ? TVShows : redirect}/>
+                        <Route exact path="/faq" component={FAQ}/>
+                        <Route exact path="/about-us" component={About}/>
+                        <Route exact path="/register" component={user ? redirect : Register}/>
+                        <Route exact path="/login" component={user ? redirect : Login}/>
+                        <Route component={NotFound}/>
+                    </Switch>
+                </Wrapper>
                 <ScrollToTop/>
             </div>
         </Provider>
