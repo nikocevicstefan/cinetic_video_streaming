@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {NavLink} from "react-router-dom";
 import openSidebar from '../../assets/img/icons/right.svg'
 import closeSidebar from '../../assets/img/icons/back.svg'
@@ -6,9 +6,17 @@ import closeSidebar from '../../assets/img/icons/back.svg'
 const Sidebar = () => {
 
     const [sidebar, setSidebar] = useState(false);
+    const [user, setUser] = useState(null);
+
+    useEffect(function fetchUser(){
+        const loggedInUser = window.localStorage.getItem('loggedInUser');
+        setUser(JSON.parse(loggedInUser));
+    }, []);
 
     const logoutHandler = () =>{
         window.localStorage.removeItem('loggedInUser');
+        setUser(null);
+        window.location.replace('/');
     }
     const toggleSidebar = () => {
         setSidebar(!sidebar);
@@ -24,19 +32,19 @@ const Sidebar = () => {
             <ul className="sidebar__list">
                 <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link"
                                                        to="/">Home</NavLink></li>
-                <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link"
-                                                       to="/movies">Movies</NavLink></li>
-                <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link"
-                                                       to="/tv-shows">TV Shows</NavLink></li>
+                {user && <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link"
+                                                       to="/movies">Movies</NavLink></li>}
+                {user && <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link"
+                                                       to="/tv-shows">TV Shows</NavLink></li>}
                 <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link"
                                                        to="/about-us">About Us</NavLink></li>
                 <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link"
                                                        to="/faq">FAQ</NavLink></li>
-                <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link"
-                                                       to="/login">Login</NavLink></li>
-                <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link"
-                                                       to="/register">Register</NavLink></li>
-                <li className="sidebar__item" onClick={logoutHandler} style={{cursor: "pointer"}}>Logout</li>
+                {!user && <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link"
+                                                       to="/login">Login</NavLink></li>}
+                {!user && <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link"
+                                                       to="/register">Register</NavLink></li>}
+                {user && <li className="sidebar__item" onClick={logoutHandler} style={{cursor: "pointer"}}>Logout</li>}
             </ul>
         </div>
     );

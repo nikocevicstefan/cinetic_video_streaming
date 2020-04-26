@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Route, Switch} from "react-router-dom";
 import {Provider} from 'react-redux';
 import store from "./store";
@@ -13,22 +13,31 @@ import ScrollToTop from "./Components/Shared/ScrollToTop";
 import Register from "./Components/Pages/Register";
 import Login from "./Components/Pages/Login";
 
+const redirect = () => window.location.replace('/');
 
-function App() {
+const App = () => {
+
+    const [user, setUser] = useState(null);
+
+    useEffect(function fetchUser() {
+        const loggedInUser = window.localStorage.getItem('loggedInUser');
+        setUser(JSON.parse(loggedInUser));
+    }, []);
+
     return (
         <Provider store={store}>
             <div className="App">
                 <Sidebar/>
                 <Switch>
                     <Route exact path="/" component={Home}/>
-                    <Route exact path="/movies" component={Movies}/>
-                    <Route exact path="/tv-shows" component={TVShows}/>
+                    <Route exact path="/movies" component={user ? Movies : redirect}/>
+                    <Route exact path="/tv-shows" component={user ? TVShows : redirect}/>
                     <Route exact path="/faq" component={FAQ}/>
                     <Route exact path="/about-us" component={About}/>
-                    <Route exact path="/register" component={Register}/>
-                    <Route exact path="/login" component={Login}/>
+                    <Route exact path="/register" component={user ? redirect : Register}/>
+                    <Route exact path="/login" component={user ? redirect : Login}/>
                 </Switch>
-                <ScrollToTop />
+                <ScrollToTop/>
             </div>
         </Provider>
     );
