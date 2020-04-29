@@ -9,7 +9,7 @@ import {
 
 const initialState = {
     shows: [],
-    filtered: [],
+    filtered: null,
     genres: [],
     show: {},
     trailer: null,

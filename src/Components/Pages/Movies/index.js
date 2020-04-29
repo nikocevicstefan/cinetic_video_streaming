@@ -21,7 +21,7 @@ const Movies = (props) => {
         <div className="video-content">
             <MoviePreview content={movie}/>
             <FilterContent genres={genres} type="movie"/>
-            <ContentGrid content={filtered.length > 0 ? filtered : movies}/>
+            <ContentGrid content={filtered ? filtered : movies}/>
         </div>
     );
 };
