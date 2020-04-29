@@ -1,10 +1,10 @@
 import axios from 'axios';
 import {
-    FETCH_SHOWS,
-    SELECT_SHOW,
     FETCH_SHOW_GENRES,
-    FILTER_SHOWS_BY_GENRE,
     FETCH_SHOW_TRAILER,
+    FETCH_SHOWS,
+    FILTER_SHOWS_BY_GENRE,
+    SELECT_SHOW,
     TOGGLE_SHOW_PLAYER
 } from "./types";
 
@@ -22,7 +22,7 @@ export const fetchShows = () => async dispatch => {
 }
 
 
-export const selectShow = (showId) => async dispatch =>{
+export const selectShow = (showId) => async dispatch => {
     let show = await axios.get(`https://api.themoviedb.org/3/tv/${showId}?api_key=${API_KEY}&language=en-US`);
     dispatch({
         type: SELECT_SHOW,
@@ -32,14 +32,14 @@ export const selectShow = (showId) => async dispatch =>{
     dispatch(fetchShowTrailer(show.data.id))
 }
 
-export const fetchShowTrailer = (id) => async dispatch =>{
-    try{
-        const {data: {results : trailers}} = await axios.get(` https://api.themoviedb.org/3/tv/${id}/videos?api_key=${API_KEY}`);
+export const fetchShowTrailer = (id) => async dispatch => {
+    try {
+        const {data: {results: trailers}} = await axios.get(` https://api.themoviedb.org/3/tv/${id}/videos?api_key=${API_KEY}`);
         dispatch({
             type: FETCH_SHOW_TRAILER,
             payload: trailers[0].key
         })
-    }catch (e) {
+    } catch (e) {
         console.log('No show trailer found')
     }
 
@@ -61,6 +61,6 @@ export const filterShowsByGenre = (genreId) => dispatch => {
     })
 }
 
-export const toggleShowPlayer = () => dispatch=> dispatch({type:TOGGLE_SHOW_PLAYER})
+export const toggleShowPlayer = () => dispatch => dispatch({type: TOGGLE_SHOW_PLAYER})
 
 

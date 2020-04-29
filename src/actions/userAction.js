@@ -1,5 +1,4 @@
 import axios from 'axios';
-import {REGISTER, LOGIN, LOGOUT} from "./types";
 import {toast} from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
@@ -32,7 +31,7 @@ export const login = (loginData) => async dispatch => {
         )
         toast.success('Login Successful!');
 
-        setTimeout(()=>{
+        setTimeout(() => {
             window.location.replace('/');
         }, 2000);
     } catch (e) {

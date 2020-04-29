@@ -1,10 +1,12 @@
-.scroll-to-top{
+.scroll-to-top {
   cursor: pointer;
   transition: 0.5s ease-in-out all;
   background: $secondary-purple;
-  img{
+
+  img {
     width: 100%;
   }
+
   padding: 1rem;
   position: fixed;
   right: 20px;
@@ -22,12 +24,12 @@
     box-shadow: $box-shadow-white;
   }
 
-  &:active{
+  &:active {
     transform: translateY(1px);
     box-shadow: $box-shadow-white;
   }
 
-  &:hover{
+  &:hover {
     background-color: white;
     color: $swatch_5;
   }

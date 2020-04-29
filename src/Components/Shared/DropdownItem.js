@@ -1,7 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 const DropdownItem = (props) => {
-    const toggleDropdown = (e) => {e.target.nextSibling.classList.toggle('false');};
+    const toggleDropdown = (e) => {
+        e.target.nextSibling.classList.toggle('false');
+    };
 
     const {shown, hidden} = props;
     return (

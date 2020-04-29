@@ -1,13 +1,12 @@
 import axios from 'axios';
 import {
     FETCH_MOVIE_GENRES,
+    FETCH_MOVIE_TRAILER,
     FETCH_MOVIES,
     FILTER_MOVIES_BY_GENRE,
     SELECT_MOVIE,
-    FETCH_MOVIE_TRAILER,
     TOGGLE_MOVIE_PLAYER
 } from "./types";
-import {toast} from "react-toastify";
 
 const API_KEY = 'cc5e64c3b7740570da7c503aa33d7a9e';
 

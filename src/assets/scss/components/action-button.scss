@@ -1,7 +1,7 @@
-.action-button{
-  background-color:$secondary-purple;
+.action-button {
+  background-color: $secondary-purple;
   font-family: Montserrat-SemiBold, sans-serif;
-  color:white;
+  color: white;
   padding: 1.5rem 3.5rem;
   width: 100%;
   border-radius: 50px;
@@ -18,7 +18,7 @@
     box-shadow: $box-shadow-purple;
   }
 
-  &:active{
+  &:active {
     transform: translateY(1px);
     box-shadow: $box-shadow-white;
   }
@@ -28,11 +28,11 @@
     color: $swatch_5;
   }
 
-  &:disabled{
+  &:disabled {
     background-color: darkgray;
     box-shadow: none;
 
-    &:hover, &:active, &:focus{
+    &:hover, &:active, &:focus {
       color: white;
     }
   }

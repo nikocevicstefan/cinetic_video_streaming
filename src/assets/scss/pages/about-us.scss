@@ -86,7 +86,7 @@
       justify-content: space-between;
       align-items: center;
     }
-    &__text{
+    &__text {
       align-items: flex-start;
     }
     &__map {
@@ -108,11 +108,11 @@
     }
   }
   @media screen and(min-width: 1800px) {
-    &__heading, &__subheading{
+    &__heading, &__subheading {
       font-size: 8rem;
     }
 
-    &__details{
+    &__details {
       font-size: 3rem;
     }
   }

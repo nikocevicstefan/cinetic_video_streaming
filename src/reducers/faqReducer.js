@@ -1,13 +1,13 @@
 import {FETCH_FAQS} from "../actions/types";
 
 const initialState = {
-    faqs:[]
+    faqs: []
 }
 
-export default function (state=initialState, action) {
+export default function (state = initialState, action) {
     switch (action.type) {
         case FETCH_FAQS:
-            return{
+            return {
                 ...state,
                 faqs: action.payload
             };

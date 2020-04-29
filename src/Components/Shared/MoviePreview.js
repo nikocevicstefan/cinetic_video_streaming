@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import VideoPlayer from "Components/Shared/VideoPlayer";
-import {fetchMovieTrailer, toggleMoviePlayer} from "actions/movieAction";
+import {fetchMovieTrailer} from "actions/movieAction";
 import ContentDetails from "./ContentDetails";
 
 const MoviePreview = (props) => {

@@ -37,13 +37,13 @@ module.exports = {
 
     create: function (req, res, next) {
         faqModel.create({question: req.body.question, answer: req.body.answer}, function (err, faq) {
-            if(err){
+            if (err) {
                 next(err);
-            }else {
+            } else {
                 res.json({
                     status: "success",
                     message: "Created A Faq",
-                    data:{
+                    data: {
                         question: faq.question,
                         answer: faq.answer
                     }
@@ -54,9 +54,9 @@ module.exports = {
 
     delete: function (req, res, next) {
         faqModel.findByIdAndRemove(req.params.faqId, function (err, faq) {
-            if(err){
+            if (err) {
                 next(err);
-            }else{
+            } else {
                 res.json({
                     status: "success",
                     message: "Faq Deleted",

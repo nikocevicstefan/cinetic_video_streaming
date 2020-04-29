@@ -3,12 +3,12 @@ const mongoose = require('mongoose');
 //Defining a schema
 const Schema = mongoose.Schema;
 const FaqSchema = new Schema({
-    question:{
+    question: {
         type: String,
         trim: true,
         required: true
     },
-    answer:{
+    answer: {
         type: String,
         trim: true,
         required: true

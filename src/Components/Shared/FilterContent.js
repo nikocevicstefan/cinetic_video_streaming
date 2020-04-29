@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import Search from '../../assets/img/icons/search.svg';
 import {connect} from 'react-redux';
 import {filterMoviesByGenre} from "../../actions/movieAction";
 import {filterShowsByGenre} from "../../actions/tvshowAction";
@@ -41,7 +40,7 @@ const FilterContent = (props) => {
                     }
                 </select>
             </div>
-           {/* <div className="filter-content__search">
+            {/* <div className="filter-content__search">
                 <input type="text" onChange={onSearchChange} value={searchValue}/>
                 <img src={Search} alt="search icon"/>
             </div>*/}

@@ -1,4 +1,4 @@
-import { combineReducers } from "redux";
+import {combineReducers} from "redux";
 import faqReducer from "./faqReducer";
 import movieReducer from "./movieReducer";
 import tvshowReducer from "./tvshowReducer";

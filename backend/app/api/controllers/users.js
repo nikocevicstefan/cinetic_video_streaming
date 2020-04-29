@@ -2,25 +2,33 @@ const userModel = require('../models/users');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 module.exports = {
-    create: function(req, res, next) {
+    create: function (req, res, next) {
 
-        userModel.create({ name: req.body.name, email: req.body.email, password: req.body.password }, function (err, result) {
+        userModel.create({
+            name: req.body.name,
+            email: req.body.email,
+            password: req.body.password
+        }, function (err, result) {
             if (err)
                 next(err);
             else
                 res.json({status: "success", message: "Registration Successful!", data: result});
         });
     },
-    authenticate: function(req, res, next) {
-        userModel.findOne({email:req.body.email}, function(err, userInfo){
+    authenticate: function (req, res, next) {
+        userModel.findOne({email: req.body.email}, function (err, userInfo) {
             if (err) {
                 next(err);
             } else {
-                if(bcrypt.compareSync(req.body.password, userInfo.password)) {
-                    const token = jwt.sign({id: userInfo._id}, req.app.get('secretKey'), { expiresIn: '1h' });
-                    res.json({status:"success", message: "Login Successful!", data:{user: {id:userInfo._id, name:userInfo.name}, token:token}});
-                }else{
-                    res.json({status:"error", message: "Invalid email/password.", data:null});
+                if (bcrypt.compareSync(req.body.password, userInfo.password)) {
+                    const token = jwt.sign({id: userInfo._id}, req.app.get('secretKey'), {expiresIn: '1h'});
+                    res.json({
+                        status: "success",
+                        message: "Login Successful!",
+                        data: {user: {id: userInfo._id, name: userInfo.name}, token: token}
+                    });
+                } else {
+                    res.json({status: "error", message: "Invalid email/password.", data: null});
                 }
             }
         });

@@ -1,8 +1,7 @@
-import React, {useEffect, useState} from 'react';
-import {fetchMovies, fetchMovieGenres, fetchMovieTrailer} from "actions/movieAction";
+import React, {useEffect} from 'react';
+import {fetchMovieGenres, fetchMovies} from "actions/movieAction";
 import {connect} from "react-redux";
 import ContentGrid from "Components/Shared/ContentGrid";
-import ContentPreview from "Components/Shared/ContentPreview";
 import FilterContent from "Components/Shared/FilterContent";
 import MoviePreview from "../../Shared/MoviePreview";
 

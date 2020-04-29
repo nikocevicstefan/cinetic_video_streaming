@@ -1,17 +1,17 @@
 import React from 'react';
 import ActionButton from "./ActionButton";
 import {connect} from 'react-redux';
-import {toggleMoviePlayer, fetchMovieTrailer} from "actions/movieAction";
-import {toggleShowPlayer, fetchShowTrailer} from "actions/tvshowAction";
+import {fetchMovieTrailer, toggleMoviePlayer} from "actions/movieAction";
+import {fetchShowTrailer, toggleShowPlayer} from "actions/tvshowAction";
 
 const ContentDetails = (props) => {
 
     const {
-        content,type, toggleMoviePlayer, movieTrailer,
+        content, type, toggleMoviePlayer, movieTrailer,
         toggleShowPlayer, showTrailer,
     } = props;
 
-    const playTrailerHandler = () => type==='movie' ? toggleMoviePlayer() : toggleShowPlayer();
+    const playTrailerHandler = () => type === 'movie' ? toggleMoviePlayer() : toggleShowPlayer();
 
     return (
         <>
@@ -23,7 +23,7 @@ const ContentDetails = (props) => {
                 <div className="content-preview__description">{content.overview}
                 </div>
                 {
-                        (type==='movie' && movieTrailer) || (type==='show' && showTrailer)
+                    (type === 'movie' && movieTrailer) || (type === 'show' && showTrailer)
                         ? <div className="content-preview__cta">
                             <ActionButton text="Play" onclick={playTrailerHandler}/>
                         </div>
@@ -48,4 +48,9 @@ const mapStateToProps = (state) => ({
     showTrailer: state.show.trailer,
 })
 
-export default connect(mapStateToProps, {toggleMoviePlayer, fetchMovieTrailer, toggleShowPlayer, fetchShowTrailer})(ContentDetails);
+export default connect(mapStateToProps, {
+    toggleMoviePlayer,
+    fetchMovieTrailer,
+    toggleShowPlayer,
+    fetchShowTrailer
+})(ContentDetails);

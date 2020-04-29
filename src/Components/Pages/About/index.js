@@ -27,9 +27,9 @@ const About = () => {
                 <div className="about-us__contact-info">
                     <h2 className="about-us__subheading">Contact us</h2>
                     <ul>
-                        <li> <strong> Phone: </strong> 069602930</li>
-                        <li> <strong> Email: </strong> nikocevicstefan@gmail.com</li>
-                        <li> <strong> Address: </strong> Crna Gora, Bar 85000</li>
+                        <li><strong> Phone: </strong> 069602930</li>
+                        <li><strong> Email: </strong> nikocevicstefan@gmail.com</li>
+                        <li><strong> Address: </strong> Crna Gora, Bar 85000</li>
                     </ul>
                 </div>
                 <div className="about-us__map">

@@ -6,7 +6,7 @@ import {fetchFaqs} from "actions/faqAction";
 const FAQ = (props) => {
     const {faqs} = props;
 
-    useEffect(()=>{
+    useEffect(() => {
         props.fetchFaqs();
     }, [])
 
@@ -17,7 +17,7 @@ const FAQ = (props) => {
     );
 };
 
-const mapStateToProps = (state) =>({
+const mapStateToProps = (state) => ({
     faqs: state.faq.faqs
 });
 

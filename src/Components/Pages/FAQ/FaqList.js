@@ -1,5 +1,6 @@
 import React from 'react';
 import DropdownItem from "Components/Shared/DropdownItem";
+
 const FaqList = ({faqs}) => {
     return (
         <div className="faq-list">
@@ -8,7 +9,7 @@ const FaqList = ({faqs}) => {
             </div>
             {
                 faqs.map(faq => {
-                    return(
+                    return (
                         <div className="faq-list__item" key={faq.id}>
                             <DropdownItem shown={faq.question} hidden={faq.answer}/>
                         </div>

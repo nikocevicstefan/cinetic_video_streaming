@@ -1,6 +1,6 @@
 import {
-    FETCH_SHOW_TRAILER,
     FETCH_SHOW_GENRES,
+    FETCH_SHOW_TRAILER,
     FETCH_SHOWS,
     FILTER_SHOWS_BY_GENRE,
     SELECT_SHOW,
@@ -11,15 +11,15 @@ const initialState = {
     shows: [],
     filtered: [],
     genres: [],
-    show:{},
+    show: {},
     trailer: null,
-    trailerPlaying:false
+    trailerPlaying: false
 }
 
-export default function(state = initialState, action){
+export default function (state = initialState, action) {
     switch (action.type) {
         case FETCH_SHOWS:
-            return{
+            return {
                 ...state,
                 shows: action.payload
             };

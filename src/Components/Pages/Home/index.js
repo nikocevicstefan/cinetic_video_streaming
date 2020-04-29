@@ -9,9 +9,10 @@ const Home = () => {
     const moviesText = "Movies move us like nothing else can, whether they’re scary, funny, dramatic, romantic or anywhere in-between. So many titles, so much to experience.";
     return (
         <div className="homepage">
-            <MainHeader />
-            <ContentShowcase image={ShowcaseImageMovie}  heading="Movies" text={moviesText} link="/movies"/>
-            <ContentShowcase image={ShowcaseImageShow} heading="TV Shows" text={tvhShowText} link="/tv-shows" classes="content-showcase--reverse"/>
+            <MainHeader/>
+            <ContentShowcase image={ShowcaseImageMovie} heading="Movies" text={moviesText} link="/movies"/>
+            <ContentShowcase image={ShowcaseImageShow} heading="TV Shows" text={tvhShowText} link="/tv-shows"
+                             classes="content-showcase--reverse"/>
         </div>
     );
 };

@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {connect} from "react-redux";
 import ContentGrid from "../../Shared/ContentGrid";
-import {fetchShows, fetchShowGenres} from "actions/tvshowAction";
+import {fetchShowGenres, fetchShows} from "actions/tvshowAction";
 import FilterContent from "Components/Shared/FilterContent";
 import ShowPreview from "Components/Shared/ShowPreview";
 

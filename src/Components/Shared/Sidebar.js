@@ -8,12 +8,12 @@ const Sidebar = () => {
     const [sidebar, setSidebar] = useState(false);
     const [user, setUser] = useState(null);
 
-    useEffect(function fetchUser(){
+    useEffect(function fetchUser() {
         const loggedInUser = window.localStorage.getItem('loggedInUser');
         setUser(JSON.parse(loggedInUser));
     }, []);
 
-    const logoutHandler = () =>{
+    const logoutHandler = () => {
         window.localStorage.removeItem('loggedInUser');
         setUser(null);
         window.location.replace('/');
@@ -33,16 +33,18 @@ const Sidebar = () => {
                 <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link"
                                                        to="/">Home</NavLink></li>
                 {user && <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link"
-                                                       to="/movies">Movies</NavLink></li>}
+                                                                to="/movies">Movies</NavLink></li>}
                 {user && <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link"
-                                                       to="/tv-shows">TV Shows</NavLink></li>}
+                                                                to="/tv-shows">TV Shows</NavLink></li>}
                 <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link"
                                                        to="/about-us">About Us</NavLink></li>
                 <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link"
                                                        to="/faq">FAQ</NavLink></li>
-                {!user && <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link"
+                {!user &&
+                <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link"
                                                        to="/login">Login</NavLink></li>}
-                {!user && <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link"
+                {!user &&
+                <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link"
                                                        to="/register">Register</NavLink></li>}
                 {user && <li className="sidebar__item" onClick={logoutHandler} style={{cursor: "pointer"}}>Logout</li>}
             </ul>

@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from "prop-types";
+
 const ActionButton = (props) => {
     const {text, classes, onclick, disabled} = props;
     return (
@@ -7,8 +7,6 @@ const ActionButton = (props) => {
     );
 };
 
-ActionButton.defaultProps = {
-
-}
+ActionButton.defaultProps = {}
 
 export default ActionButton;

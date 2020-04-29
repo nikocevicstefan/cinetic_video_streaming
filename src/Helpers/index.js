@@ -5,5 +5,5 @@ export const ucfirst = (text) => {
 
 //change all underscores to spaces in a string
 export const underscoreToSpace = (text) => {
-    return text.replace('_',' ');
+    return text.replace('_', ' ');
 };
