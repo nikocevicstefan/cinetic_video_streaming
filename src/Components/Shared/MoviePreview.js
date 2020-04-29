@@ -2,29 +2,23 @@ import React from 'react';
 import {connect} from 'react-redux';
 import VideoPlayer from "Components/Shared/VideoPlayer";
 import {fetchMovieTrailer, toggleMoviePlayer} from "actions/movieAction";
-import {fetchShowTrailer, toggleShowPlayer} from "actions/tvshowAction";
 import ContentDetails from "./ContentDetails";
 
-const ContentPreview = (props) => {
-    const {
-        content, movieTrailer, showTrailer,
-        movieTrailerPlaying, showTrailerPlaying
-    } = props;
+const MoviePreview = (props) => {
+    const {content, movieTrailer, movieTrailerPlaying,} = props;
 
     return (
         <div className="content-preview">
             {movieTrailerPlaying
                 ? <VideoPlayer id={content.id} trailer={movieTrailer}/>
-                : <ContentDetails content={content}/>}
+                : <ContentDetails content={content} type="movie"/>}
         </div>
     );
 };
 
 const mapStateToProps = (state) => ({
     movieTrailer: state.movie.trailer,
-    showTrailer: state.show.trailer,
     movieTrailerPlaying: state.movie.trailerPlaying,
-    showTrailerPlaying: state.show.trailerPlaying
 })
 
-export default connect(mapStateToProps, {fetchMovieTrailer, fetchShowTrailer})(ContentPreview);
+export default connect(mapStateToProps, {fetchMovieTrailer})(MoviePreview);

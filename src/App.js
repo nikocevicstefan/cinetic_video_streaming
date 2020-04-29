@@ -19,11 +19,11 @@ const redirect = () => window.location.replace('/');
 
 const App = () => {
 
-    const [user, setUser] = useState(true);
+    const [user, setUser] = useState(null);
 
     useEffect(function fetchUser() {
         const loggedInUser = window.localStorage.getItem('loggedInUser');
-        //setUser(JSON.parse(loggedInUser));
+        setUser(JSON.parse(loggedInUser));
     }, []);
 
     return (

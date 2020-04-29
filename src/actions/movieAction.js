@@ -3,8 +3,11 @@ import {
     FETCH_MOVIE_GENRES,
     FETCH_MOVIES,
     FILTER_MOVIES_BY_GENRE,
-    SELECT_MOVIE
+    SELECT_MOVIE,
+    FETCH_MOVIE_TRAILER,
+    TOGGLE_MOVIE_PLAYER
 } from "./types";
+import {toast} from "react-toastify";
 
 const API_KEY = 'cc5e64c3b7740570da7c503aa33d7a9e';
 
@@ -32,6 +35,20 @@ export const selectMovie = (movieId) => async dispatch => {
         type: SELECT_MOVIE,
         payload: data
     })
+
+    dispatch(fetchMovieTrailer(data.id));
+}
+
+export const fetchMovieTrailer = (id) => async dispatch => {
+    try {
+        const {data: {results: trailers}} = await axios.get(` https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}`);
+        dispatch({
+            type: FETCH_MOVIE_TRAILER,
+            payload: trailers[0].key
+        })
+    } catch (e) {
+        console.log('No trailer available');
+    }
 }
 
 export const fetchMovieGenres = () => async dispatch => {
@@ -48,4 +65,7 @@ export const filterMoviesByGenre = (categoryId) => dispatch => {
         payload: categoryId
     })
 }
+
+export const toggleMoviePlayer = () => dispatch => dispatch({type: TOGGLE_MOVIE_PLAYER})
+
 

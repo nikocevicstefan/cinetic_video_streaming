@@ -1,29 +1,26 @@
-import React, {useEffect} from 'react';
-import {fetchMovies, fetchMovieGenres} from "actions/movieAction";
+import React, {useEffect, useState} from 'react';
+import {fetchMovies, fetchMovieGenres, fetchMovieTrailer} from "actions/movieAction";
 import {connect} from "react-redux";
 import ContentGrid from "Components/Shared/ContentGrid";
 import ContentPreview from "Components/Shared/ContentPreview";
 import FilterContent from "Components/Shared/FilterContent";
+import MoviePreview from "../../Shared/MoviePreview";
 
 const Movies = (props) => {
+
     let {
-        movies,
-        filtered,
-        genres,
-        movie,
-        fetchMovies,
-        fetchMovieGenres,
+        movies, filtered, genres,
+        movie, fetchMovies, fetchMovieGenres
     } = props;
 
     useEffect(() => {
         fetchMovies();
         fetchMovieGenres();
     }, [])
-    
 
     return (
         <div className="video-content">
-            <ContentPreview content={movie}/>
+            <MoviePreview content={movie}/>
             <FilterContent genres={genres} type="movie"/>
             <ContentGrid content={filtered.length > 0 ? filtered : movies}/>
         </div>

@@ -3,7 +3,9 @@ import {
     FETCH_SHOWS,
     SELECT_SHOW,
     FETCH_SHOW_GENRES,
-    FILTER_SHOWS_BY_GENRE
+    FILTER_SHOWS_BY_GENRE,
+    FETCH_SHOW_TRAILER,
+    TOGGLE_SHOW_PLAYER
 } from "./types";
 
 const API_KEY = 'cc5e64c3b7740570da7c503aa33d7a9e';
@@ -26,6 +28,21 @@ export const selectShow = (showId) => async dispatch =>{
         type: SELECT_SHOW,
         payload: show.data
     })
+
+    dispatch(fetchShowTrailer(show.data.id))
+}
+
+export const fetchShowTrailer = (id) => async dispatch =>{
+    try{
+        const {data: {results : trailers}} = await axios.get(` https://api.themoviedb.org/3/tv/${id}/videos?api_key=${API_KEY}`);
+        dispatch({
+            type: FETCH_SHOW_TRAILER,
+            payload: trailers[0].key
+        })
+    }catch (e) {
+        console.log('No show trailer found')
+    }
+
 }
 
 export const fetchShowGenres = () => async dispatch => {
@@ -43,4 +60,7 @@ export const filterShowsByGenre = (genreId) => dispatch => {
         payload: genreId
     })
 }
+
+export const toggleShowPlayer = () => dispatch=> dispatch({type:TOGGLE_SHOW_PLAYER})
+
 

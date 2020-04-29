@@ -10,12 +10,12 @@
   transition: .5s all ease-in-out;
   box-shadow: $box-shadow-purple;
 
-  &:hover, &:focus {
+  &:hover, &:focus, &:not(disabled) {
     cursor: pointer;
     outline: none;
     transition: all .2s;
     transform: translateY(-3px);
-    box-shadow: $box-shadow-white;
+    box-shadow: $box-shadow-purple;
   }
 
   &:active{
@@ -23,8 +23,17 @@
     box-shadow: $box-shadow-white;
   }
 
-  &:hover{
+  &:hover {
     background-color: white;
     color: $swatch_5;
+  }
+
+  &:disabled{
+    background-color: darkgray;
+    box-shadow: none;
+
+    &:hover, &:active, &:focus{
+      color: white;
+    }
   }
 }

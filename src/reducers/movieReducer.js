@@ -2,16 +2,18 @@ import {
     FETCH_MOVIE_GENRES,
     FETCH_MOVIES,
     FILTER_MOVIES_BY_GENRE,
-    FILTER_MOVIES_BY_NAME,
-    SET_FILTERED_MOVIES,
-    SELECT_MOVIE
+    FETCH_MOVIE_TRAILER,
+    SELECT_MOVIE,
+    TOGGLE_MOVIE_PLAYER
 } from "../actions/types";
 
 const initialState = {
     movies: [],
     filtered: [],
     genres: [],
-    movie:{}
+    movie:{},
+    trailer: null,
+    trailerPlaying:false,
 }
 
 export default function(state = initialState, action){
@@ -29,23 +31,25 @@ export default function(state = initialState, action){
         case SELECT_MOVIE:
             return {
                 ...state,
-                movie: action.payload
+                movie: action.payload,
+                trailerPlaying: false,
+                trailer: null
             }
         case FILTER_MOVIES_BY_GENRE:
             return {
                 ...state,
                 filtered: state.movies.filter(movie => movie.genre_ids.includes(parseInt(action.payload)))
             }
-        /*case FILTER_MOVIES_BY_NAME:
+        case FETCH_MOVIE_TRAILER:
             return {
                 ...state,
-                searched: state.filtered.filter(movie => movie.title.includes(action.payload))
+                trailer: action.payload
             }
-        case SET_FILTERED_MOVIES:
+        case TOGGLE_MOVIE_PLAYER:
             return {
                 ...state,
-                filtered: state.movies
-            }*/
+                trailerPlaying: !state.trailerPlaying,
+            }
         default:
             return state;
     }

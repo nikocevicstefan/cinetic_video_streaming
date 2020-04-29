@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react';
 import {connect} from "react-redux";
 import ContentGrid from "../../Shared/ContentGrid";
-import ContentPreview from "../../Shared/ContentPreview";
-import {fetchShows, fetchShowGenres} from "../../../actions/tvshowAction";
-import FilterContent from "../../Shared/FilterContent";
+import {fetchShows, fetchShowGenres} from "actions/tvshowAction";
+import FilterContent from "Components/Shared/FilterContent";
+import ShowPreview from "Components/Shared/ShowPreview";
 
 const TVShows = (props) => {
     let {
@@ -22,7 +22,7 @@ const TVShows = (props) => {
 
     return (
         <div className="video-content">
-            <ContentPreview content={show}/>
+            <ShowPreview content={show}/>
             <FilterContent genres={genres} type="tv"/>
             <ContentGrid content={filtered.length > 0 ? filtered : shows}/>
         </div>
