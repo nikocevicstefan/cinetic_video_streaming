@@ -10,7 +10,7 @@ const ShowPreview = (props) => {
     return (
         <div className="content-preview">
             {showTrailerPlaying
-                ? <VideoPlayer id={content.id} trailer={showTrailer}/>
+                ? <VideoPlayer id={content.id} trailer={showTrailer} type="show"/>
                 : <ContentDetails content={content} type="show"/>}
         </div>
     );

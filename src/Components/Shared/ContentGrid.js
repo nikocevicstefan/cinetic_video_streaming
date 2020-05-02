@@ -7,16 +7,16 @@ import {fetchShows, updateShowPage} from 'actions/tvshowAction'
 const ContentGrid = (props) => {
     const {content, type, updateMoviePage, updateShowPage} = props;
 
-    useEffect(function fetchMoreData(){
+    useEffect(function fetchMoreData() {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, [])
 
     const handleScroll = () => {
         if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) return;
-        if(type==='movies'){
+        if (type === 'movies') {
             updateMoviePage();
-        }else{
+        } else {
             updateShowPage();
         }
     }

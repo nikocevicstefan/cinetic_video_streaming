@@ -60,7 +60,7 @@ export default function (state = initialState, action) {
         case UPDATE_SHOW_PAGE:
             return {
                 ...state,
-                page: state.page+1
+                page: state.page + 1
             }
         default:
             return state;

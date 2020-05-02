@@ -17,12 +17,12 @@ export const fetchMovies = (page = 1) => async dispatch => {
         const {data: {results: movies}} = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=${page}`);
 
         dispatch({
-            type: page!==1 ? FETCH_MORE_MOVIES : FETCH_MOVIES,
+            type: page !== 1 ? FETCH_MORE_MOVIES : FETCH_MOVIES,
             payload: movies
         })
 
         //dispatch the first movie to the reducer and set as default selected movie
-        page===1 && dispatch(selectMovie(movies[0].id));
+        page === 1 && dispatch(selectMovie(movies[0].id));
     } catch (e) {
         //to be expanded
         console.error(e);

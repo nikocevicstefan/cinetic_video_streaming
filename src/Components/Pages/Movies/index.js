@@ -12,7 +12,7 @@ const Movies = (props) => {
         movie, fetchMovies, fetchMovieGenres
     } = props;
 
-    useEffect(()=> {
+    useEffect(() => {
         !filtered && fetchMovies(page);
     }, [page])
 
