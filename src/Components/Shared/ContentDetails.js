@@ -3,12 +3,13 @@ import ActionButton from "./ActionButton";
 import {connect} from 'react-redux';
 import {fetchMovieTrailer, toggleMoviePlayer} from "actions/movieAction";
 import {fetchShowTrailer, toggleShowPlayer} from "actions/tvshowAction";
+import HeaderImage from 'assets/img/header2.jpg'
 
 const ContentDetails = (props) => {
 
     const {
-        content, type, toggleMoviePlayer, movieTrailer,
-        toggleShowPlayer, showTrailer,
+        content, type, toggleMoviePlayer,
+        movieTrailer, toggleShowPlayer, showTrailer,
     } = props;
 
     const playTrailerHandler = () => type === 'movie' ? toggleMoviePlayer() : toggleShowPlayer();

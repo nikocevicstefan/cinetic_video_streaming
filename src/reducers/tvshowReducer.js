@@ -1,10 +1,11 @@
 import {
+    FETCH_MORE_SHOWS,
     FETCH_SHOW_GENRES,
     FETCH_SHOW_TRAILER,
     FETCH_SHOWS,
     FILTER_SHOWS_BY_GENRE,
     SELECT_SHOW,
-    TOGGLE_SHOW_PLAYER
+    TOGGLE_SHOW_PLAYER, UPDATE_SHOW_PAGE
 } from "../actions/types";
 
 const initialState = {
@@ -13,7 +14,8 @@ const initialState = {
     genres: [],
     show: {},
     trailer: null,
-    trailerPlaying: false
+    trailerPlaying: false,
+    page: 1
 }
 
 export default function (state = initialState, action) {
@@ -22,6 +24,11 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 shows: action.payload
+            };
+        case FETCH_MORE_SHOWS:
+            return {
+                ...state,
+                shows: state.shows.concat(action.payload)
             };
         case FETCH_SHOW_GENRES:
             return {
@@ -49,6 +56,11 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 trailerPlaying: !state.trailerPlaying
+            }
+        case UPDATE_SHOW_PAGE:
+            return {
+                ...state,
+                page: state.page+1
             }
         default:
             return state;

@@ -7,18 +7,19 @@ import ShowPreview from "Components/Shared/ShowPreview";
 
 const TVShows = (props) => {
     let {
-        shows,
-        filtered,
-        genres,
-        show,
-        fetchShows,
+        shows, filtered, genres,
+        show, page, fetchShows,
         fetchShowGenres
     } = props;
 
     useEffect(() => {
-        fetchShows();
+        !filtered && fetchShows(page);
+    }, [page])
+
+    useEffect(() => {
         fetchShowGenres();
-    }, [])
+    }, []);
+
 
     return (
         <div className="video-content">
@@ -32,6 +33,7 @@ const TVShows = (props) => {
 const mapStateToProps = (state) => ({
     shows: state.show.shows,
     filtered: state.show.filtered,
+    page: state.show.page,
     genres: state.show.genres,
     show: state.show.show
 });

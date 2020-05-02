@@ -1,10 +1,11 @@
 import {
+    FETCH_MORE_MOVIES,
     FETCH_MOVIE_GENRES,
     FETCH_MOVIE_TRAILER,
     FETCH_MOVIES,
     FILTER_MOVIES_BY_GENRE,
     SELECT_MOVIE,
-    TOGGLE_MOVIE_PLAYER
+    TOGGLE_MOVIE_PLAYER, UPDATE_MOVIE_PAGE
 } from "../actions/types";
 
 const initialState = {
@@ -14,6 +15,7 @@ const initialState = {
     movie: {},
     trailer: null,
     trailerPlaying: false,
+    page: 1
 }
 
 export default function (state = initialState, action) {
@@ -22,6 +24,11 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 movies: action.payload
+            };
+        case FETCH_MORE_MOVIES:
+            return {
+                ...state,
+                movies: state.movies.concat(action.payload)
             };
         case FETCH_MOVIE_GENRES:
             return {
@@ -49,6 +56,11 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 trailerPlaying: !state.trailerPlaying,
+            }
+        case UPDATE_MOVIE_PAGE:
+            return {
+                ...state,
+                page: state.page+1
             }
         default:
             return state;

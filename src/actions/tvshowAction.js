@@ -1,24 +1,29 @@
 import axios from 'axios';
 import {
+    FETCH_MORE_SHOWS,
     FETCH_SHOW_GENRES,
     FETCH_SHOW_TRAILER,
     FETCH_SHOWS,
     FILTER_SHOWS_BY_GENRE,
     SELECT_SHOW,
-    TOGGLE_SHOW_PLAYER
+    TOGGLE_SHOW_PLAYER, UPDATE_SHOW_PAGE
 } from "./types";
 
 const API_KEY = 'cc5e64c3b7740570da7c503aa33d7a9e';
 
-export const fetchShows = () => async dispatch => {
-    const shows = await axios.get(`    https://api.themoviedb.org/3/tv/popular?api_key=${API_KEY}&language=en-US&page=1`);
-    dispatch({
-        type: FETCH_SHOWS,
-        payload: shows.data.results
-    })
+export const fetchShows = (page=1) => async dispatch => {
+    try{
+        const shows = await axios.get(`https://api.themoviedb.org/3/tv/popular?api_key=${API_KEY}&language=en-US&page=${page}`);
+        dispatch({
+            type: page!==1 ? FETCH_MORE_SHOWS : FETCH_SHOWS,
+            payload: shows.data.results
+        })
 
-    //set the first show as default selected show
-    dispatch(selectShow(shows.data.results[0].id));
+        //set the first show as default selected show
+        page===1 && dispatch(selectShow(shows.data.results[0].id));
+    }catch (e) {
+        console.log('Error')
+    }
 }
 
 
@@ -60,6 +65,8 @@ export const filterShowsByGenre = (genreId) => dispatch => {
         payload: genreId
     })
 }
+
+export const updateShowPage = () => async dispatch => await dispatch({type: UPDATE_SHOW_PAGE})
 
 export const toggleShowPlayer = () => dispatch => dispatch({type: TOGGLE_SHOW_PLAYER})
 

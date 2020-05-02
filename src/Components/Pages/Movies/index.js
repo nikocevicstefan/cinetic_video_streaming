@@ -8,12 +8,15 @@ import MoviePreview from "../../Shared/MoviePreview";
 const Movies = (props) => {
 
     let {
-        movies, filtered, genres,
+        movies, filtered, genres, page,
         movie, fetchMovies, fetchMovieGenres
     } = props;
 
+    useEffect(()=> {
+        !filtered && fetchMovies(page);
+    }, [page])
+
     useEffect(() => {
-        fetchMovies();
         fetchMovieGenres();
     }, [])
 
@@ -21,7 +24,7 @@ const Movies = (props) => {
         <div className="video-content">
             <MoviePreview content={movie}/>
             <FilterContent genres={genres} type="movie"/>
-            <ContentGrid content={filtered ? filtered : movies}/>
+            <ContentGrid content={filtered ? filtered : movies} type="movies"/>
         </div>
     );
 };
@@ -29,6 +32,7 @@ const Movies = (props) => {
 const mapStateToProps = (state) => ({
     movies: state.movie.movies,
     filtered: state.movie.filtered,
+    page: state.movie.page,
     genres: state.movie.genres,
     movie: state.movie.movie
 });
