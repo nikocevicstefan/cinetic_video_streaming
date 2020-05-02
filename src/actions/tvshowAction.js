@@ -5,13 +5,15 @@ import {
     FETCH_SHOW_TRAILER,
     FETCH_SHOWS,
     FILTER_SHOWS_BY_GENRE,
-    SELECT_SHOW,
+    SELECT_SHOW, SET_LOADING,
     TOGGLE_SHOW_PLAYER, UPDATE_SHOW_PAGE
 } from "./types";
 
 const API_KEY = 'cc5e64c3b7740570da7c503aa33d7a9e';
 
 export const fetchShows = (page = 1) => async dispatch => {
+    dispatch({type:SET_LOADING});
+
     try {
         const shows = await axios.get(`https://api.themoviedb.org/3/tv/popular?api_key=${API_KEY}&language=en-US&page=${page}`);
         dispatch({
@@ -23,11 +25,15 @@ export const fetchShows = (page = 1) => async dispatch => {
         page === 1 && dispatch(selectShow(shows.data.results[0].id));
     } catch (e) {
         console.log('Error')
+    }finally {
+        dispatch({type:SET_LOADING});
     }
 }
 
 
 export const selectShow = (showId) => async dispatch => {
+    dispatch({type:SET_LOADING});
+
     let show = await axios.get(`https://api.themoviedb.org/3/tv/${showId}?api_key=${API_KEY}&language=en-US`);
     dispatch({
         type: SELECT_SHOW,
@@ -35,6 +41,7 @@ export const selectShow = (showId) => async dispatch => {
     })
 
     dispatch(fetchShowTrailer(show.data.id))
+    dispatch({type:SET_LOADING});
 }
 
 export const fetchShowTrailer = (id) => async dispatch => {

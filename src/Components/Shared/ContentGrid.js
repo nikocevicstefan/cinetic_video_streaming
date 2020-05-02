@@ -3,9 +3,10 @@ import {connect} from 'react-redux'
 import ContentItem from "./ContentItem";
 import {fetchMovies, updateMoviePage} from 'actions/movieAction'
 import {fetchShows, updateShowPage} from 'actions/tvshowAction'
+import Loading from "./Loading";
 
 const ContentGrid = (props) => {
-    const {content, type, updateMoviePage, updateShowPage} = props;
+    const {content, type, updateMoviePage, updateShowPage, loading} = props;
 
     useEffect(function fetchMoreData() {
         window.addEventListener('scroll', handleScroll);
@@ -35,6 +36,13 @@ const ContentGrid = (props) => {
                         )
                     })
                 }
+                {
+                    loading &&
+                    <div className="content-item--loading">
+                        <Loading />
+                    </div>
+
+                }
             </div>
             : <h1 className="content-grid--empty">No content found</h1>
     );
@@ -42,7 +50,8 @@ const ContentGrid = (props) => {
 
 const mapStateToProps = (state) => ({
     moviePage: state.movie.page,
-    showPage: state.show.page
+    showPage: state.show.page,
+    loading: state.app.loading,
 })
 
-export default connect(null, {fetchMovies, fetchShows, updateMoviePage, updateShowPage})(ContentGrid);
+export default connect(mapStateToProps, {fetchMovies, fetchShows, updateMoviePage, updateShowPage})(ContentGrid);

@@ -28,5 +28,8 @@ export const REGISTER = 'REGISTER'
 export const LOGIN = 'LOGIN'
 export const LOGOUT = 'LOGOUT'
 
+//App-wide actions
+export const SET_LOADING = 'SET_LOADING'
+
 
 
