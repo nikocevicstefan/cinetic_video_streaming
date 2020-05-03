@@ -8,12 +8,10 @@ import HeaderImage from 'assets/img/header2.jpg'
 const ContentDetails = (props) => {
 
     const {
-        content, type, toggleMoviePlayer,
+        content, type, toggleMoviePlayer, loading,
         movieTrailer, toggleShowPlayer, showTrailer,
     } = props;
-
     const playTrailerHandler = () => type === 'movie' ? toggleMoviePlayer() : toggleShowPlayer();
-
     return (
         <>
             <div className="content-preview__text">
@@ -33,7 +31,6 @@ const ContentDetails = (props) => {
                             <ActionButton text="No trailer available" disabled={true}/>
                         </div>
                 }
-
             </div>
             <div className="content-preview__img">
                 <img
@@ -47,6 +44,7 @@ const ContentDetails = (props) => {
 const mapStateToProps = (state) => ({
     movieTrailer: state.movie.trailer,
     showTrailer: state.show.trailer,
+    loading: state.app.loading,
 })
 
 export default connect(mapStateToProps, {

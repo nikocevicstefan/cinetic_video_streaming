@@ -44,7 +44,8 @@ module.exports = {
                             data: {user: {id: userInfo._id, name: userInfo.name}, token: token}
                         });
                     } else {
-                        res.json({status: "error", message: "Invalid email/password.", data: null});
+                        // res.json({status: "error", message: "Invalid email/password.", data: null});
+                        next('error')
                     }
                 }else {
                     next('error')
