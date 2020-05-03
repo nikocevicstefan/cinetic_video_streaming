@@ -94,6 +94,7 @@
 
     &__subtext {
       font-size: 1.8rem;
+      text-align: center;
     }
 
     &__heading {
@@ -132,7 +133,7 @@
       &__text {
         align-items: flex-start;
         margin-top: 0;
-        height: 60%;
+        height: 80vh;
         flex-basis: 50%;
         text-align: left;
       }
@@ -148,7 +149,7 @@
         width: 100%;
 
         * {
-          margin: 1rem 1rem;
+          margin-right: 2rem;
         }
       }
 
@@ -165,32 +166,39 @@
     }
 
     .content-showcase {
+      background-color: rgba(13, 19, 57, 0.22);
       display: flex;
       flex-direction: row;
       justify-content: left;
+      border-radius: 10px;
+      margin-bottom: 10rem;
+      height: 70vh;
 
       &__image {
         flex-basis: 50%;
+        height: 100%;
 
         img {
-          height: 80vh;
+          height: 100%;
           width: auto;
           margin: 0 auto;
           border-radius: 10px;
-          transform: perspective(400px) rotateY(4deg);
         }
       }
-
+      &__text{
+        height: 100%;
+      }
       &__heading {
-        font-size: 12rem;
+        font-size: 8rem;
+      }
+
+      &__subtext {
+        text-align: left;
       }
 
       &--reverse {
         flex-direction: row-reverse;
 
-        img {
-          transform: perspective(400px) rotateY(-5deg);
-        }
       }
 
     }
@@ -209,7 +217,11 @@
 
     .content-showcase {
       &__heading {
-        font-size: 18rem;
+        font-size: 12rem;
+      }
+
+      &__subtext {
+        font-size: 2.4rem;
       }
     }
   }

@@ -15,7 +15,7 @@ const ContentShowcase = (props) => {
                 <p className="content-showcase__subtext">{text}</p>
                 <div className="content-showcase__button">
                     <Link to={link}>
-                        <ActionButton text="Browse"/>
+                        <ActionButton text="Browse" classes="action-button--color-reverse"/>
                     </Link>
                 </div>
             </div>

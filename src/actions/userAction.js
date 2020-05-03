@@ -13,6 +13,9 @@ export const register = (userData) => async dispatch => {
             password: userData.password,
         }, axiosConfig);
         toast.success(`User Registered:${user.data.name}`);
+        setTimeout(() => {
+            window.location.replace('/login');
+        }, 2000);
     } catch (e) {
         toast.warn('Registration failed');
     }
@@ -29,6 +32,7 @@ export const login = (loginData) => async dispatch => {
         window.localStorage.setItem(
             'loggedInUser', JSON.stringify(user.data)
         )
+
         toast.success('Login Successful!');
 
         setTimeout(() => {
@@ -37,4 +41,6 @@ export const login = (loginData) => async dispatch => {
     } catch (e) {
         toast.warn('Login Failed!');
     }
+
+    const loggedInUser = window.localStorage.getItem('loggedInUser');
 }

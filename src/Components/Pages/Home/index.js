@@ -12,7 +12,7 @@ const Home = () => {
             <MainHeader/>
             <ContentShowcase image={ShowcaseImageMovie} heading="Movies" text={moviesText} link="/movies"/>
             <ContentShowcase image={ShowcaseImageShow} heading="TV Shows" text={tvhShowText} link="/tv-shows"
-                             classes="content-showcase--reverse"/>
+                             classes="content-showcase content-showcase--reverse"/>
         </div>
     );
 };

@@ -7,6 +7,4 @@ const ActionButton = (props) => {
     );
 };
 
-ActionButton.defaultProps = {}
-
 export default ActionButton;
