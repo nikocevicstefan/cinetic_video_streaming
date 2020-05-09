@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 60vh;
+  height: 70vh;
   color: white;
 
   background-size: cover;
@@ -14,7 +14,12 @@
   }
 
   &__logo--mobile {
-    font-size: 2rem;
+    max-height: 30vh;
+    img{
+      height: auto;
+      width: 100%;
+      border-radius: 10px;
+    }
   }
 
   &__text {
@@ -31,11 +36,11 @@
 
   &__description {
     font-size: 2rem;
-    max-height: 40vh;
+    max-height: 60vh;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 5;
+    -webkit-line-clamp: 7;
     -webkit-box-orient: vertical;
   }
 
@@ -44,7 +49,12 @@
   }
 
   &__cta {
-    width: 80%;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    *{
+      margin-right: 1rem;
+    }
   }
 
   @media screen and (min-width: 1024px) {
@@ -54,6 +64,7 @@
     }
     &__text {
       max-width: 50%;
+      align-items: flex-start;
     }
     &__img {
       display: block;

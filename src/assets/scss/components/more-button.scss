@@ -1,0 +1,33 @@
+.more-button{
+  background-color: rgba(255, 255, 255, 0.78);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 25px;
+  font-family: Montserrat-SemiBold, sans-serif;
+  color: $secondary-purple;
+  padding: 1.5rem 3.5rem;
+  border-radius: 10px;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: .5s all ease-in-out;
+  box-shadow: $box-shadow-purple;
+
+  &:hover, &:focus, &:not(disabled) {
+    cursor: pointer;
+    outline: none;
+    transition: all .2s;
+    transform: translateY(-3px);
+    box-shadow: $box-shadow-purple;
+  }
+
+  &:active {
+    transform: translateY(1px);
+    box-shadow: $box-shadow-white;
+  }
+
+  &:hover {
+    background-color: $main-purple;
+    color: white;
+  }
+}

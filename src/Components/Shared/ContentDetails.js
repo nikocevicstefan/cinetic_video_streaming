@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {fetchMovieTrailer, toggleMoviePlayer} from "actions/movieAction";
 import {fetchShowTrailer, toggleShowPlayer} from "actions/tvshowAction";
 import HeaderImage from 'assets/img/header2.jpg'
+import MoreButton from "./MoreButton";
 
 const ContentDetails = (props) => {
 
@@ -16,7 +17,9 @@ const ContentDetails = (props) => {
         <>
             <div className="content-preview__text">
                 <div className="content-preview__logo--mobile">
-                    <h1>Cinetic.</h1>
+                    <img
+                        src={`http://image.tmdb.org/t/p/original/${content.backdrop_path ? content.backdrop_path : content.poster_path}`}
+                        alt=""/>
                 </div>
                 <h1 className="content-preview__title">{content.name ? content.name : content.title}</h1>
                 <div className="content-preview__description">{content.overview}
@@ -25,10 +28,12 @@ const ContentDetails = (props) => {
                     (type === 'movie' && movieTrailer) || (type === 'show' && showTrailer)
                         ? <div className="content-preview__cta">
                             <ActionButton text="Play" onclick={playTrailerHandler}/>
+                            {type === 'show' && <MoreButton />}
                         </div>
                         :
                         <div className="content-preview__cta">
                             <ActionButton text="No trailer available" disabled={true}/>
+                            {type === 'show' && <MoreButton />}
                         </div>
                 }
             </div>
