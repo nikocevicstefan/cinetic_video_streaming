@@ -4,6 +4,8 @@ import ContentItem from "./ContentItem";
 import {fetchMovies, updateMoviePage} from 'actions/movieAction'
 import {fetchShows, updateShowPage} from 'actions/tvshowAction'
 import Loading from "./Loading";
+import { v4 as uuidv4 } from 'uuid';
+
 
 const ContentGrid = (props) => {
     const {content, type, updateMoviePage, updateShowPage, loading} = props;
@@ -30,7 +32,7 @@ const ContentGrid = (props) => {
                 {
                     content.map(item => {
                         return (
-                            <div className="content-grid__item" key={item.id} onClick={scrollToTop}>
+                            <div className="content-grid__item" key={uuidv4()} onClick={scrollToTop}>
                                 <ContentItem item={item}/>
                             </div>
                         )

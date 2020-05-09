@@ -5,6 +5,7 @@ import {fetchMovieTrailer, toggleMoviePlayer} from "actions/movieAction";
 import {fetchShowTrailer, toggleShowPlayer} from "actions/tvshowAction";
 import HeaderImage from 'assets/img/header2.jpg'
 import MoreButton from "./MoreButton";
+import {Link} from "react-router-dom";
 
 const ContentDetails = (props) => {
 
@@ -28,7 +29,7 @@ const ContentDetails = (props) => {
                     (type === 'movie' && movieTrailer) || (type === 'show' && showTrailer)
                         ? <div className="content-preview__cta">
                             <ActionButton text="Play" onclick={playTrailerHandler}/>
-                            {type === 'show' && <MoreButton />}
+                            {type === 'show' && <Link to="/show-details"><MoreButton /></Link>}
                         </div>
                         :
                         <div className="content-preview__cta">
