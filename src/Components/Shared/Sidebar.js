@@ -46,6 +46,8 @@ const Sidebar = () => {
                 {!user &&
                 <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link"
                                                        to="/register">Register</NavLink></li>}
+                <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link"
+                                                       to="/single">Single</NavLink></li>
                 {user && <li className="sidebar__item" onClick={logoutHandler} style={{cursor: "pointer"}}> <strong>Logout </strong></li>}
             </ul>
         </div>

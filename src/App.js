@@ -14,6 +14,7 @@ import Register from "./Components/Pages/Register";
 import Login from "./Components/Pages/Login";
 import NotFound from "./Components/Pages/NotFound";
 import Wrapper from "Components/Pages/Wrapper";
+import SingleTVShow from "./Components/Pages/SingleTVShow";
 
 const redirect = () => window.location.replace('/');
 
@@ -35,6 +36,7 @@ const App = () => {
                         <Route exact path="/" component={Home}/>
                         <Route exact path="/movies" component={user ? Movies : redirect}/>
                         <Route exact path="/tv-shows" component={user ? TVShows : redirect}/>
+                        <Route exact path="/single" component={user ? SingleTVShow : redirect}/>
                         <Route exact path="/faq" component={FAQ}/>
                         <Route exact path="/about-us" component={About}/>
                         <Route exact path="/register" component={user ? redirect : Register}/>
