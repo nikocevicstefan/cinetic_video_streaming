@@ -33,6 +33,7 @@ const FilterContent = (props) => {
             <div className="filter-content__categories">
                 <select name="" id="" onChange={filterContentHandler}>
                     <option value="" selected disabled hidden>Choose genre</option>
+                    <option value={-1}>All</option>
                     {
                         genres.map(genre => {
                             return <option value={genre.id} key={genre.id}>{genre.name}</option>

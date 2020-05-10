@@ -43,10 +43,14 @@ export default function (state = initialState, action) {
                 trailer: null
             }
         case FILTER_MOVIES_BY_GENRE:
-            return {
-                ...state,
-                filtered: state.movies.filter(movie => movie.genre_ids.includes(parseInt(action.payload)))
-            }
+            return parseInt(action.payload) !== -1
+                ? {
+                    ...state,
+                    filtered: state.movies.filter(movie => movie.genre_ids.includes(parseInt(action.payload)))
+                } : {
+                    ...state,
+                    filtered: null
+                }
         case FETCH_MOVIE_TRAILER:
             return {
                 ...state,

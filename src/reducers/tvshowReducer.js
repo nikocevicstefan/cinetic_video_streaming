@@ -13,7 +13,7 @@ const initialState = {
     filtered: null,
     genres: [],
     show: {},
-    seasons:[],
+    seasons: [],
     trailer: null,
     trailerPlaying: false,
     page: 1
@@ -45,10 +45,15 @@ export default function (state = initialState, action) {
                 seasons: action.payload.seasons
             };
         case FILTER_SHOWS_BY_GENRE:
-            return {
-                ...state,
-                filtered: state.shows.filter(show => show.genre_ids.includes(parseInt(action.payload)))
-            }
+            return parseInt(action.payload) !== -1
+                ?  {
+                    ...state,
+                    filtered: state.shows.filter(show => show.genre_ids.includes(parseInt(action.payload)))
+                }
+                : {
+                    ...state,
+                    filtered: null
+                }
         case FETCH_SHOW_TRAILER:
             return {
                 ...state,
