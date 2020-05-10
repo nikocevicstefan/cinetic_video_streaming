@@ -3,7 +3,7 @@ import {
     FETCH_MOVIE_GENRES,
     FETCH_MOVIE_TRAILER,
     FETCH_MOVIES,
-    FILTER_MOVIES_BY_GENRE,
+    FILTER_MOVIES_BY_GENRE, FILTER_MOVIES_BY_NAME, FILTER_SHOWS_BY_NAME, RESET_MOVIE_FILTERS, RESET_SHOW_FILTERS,
     SELECT_MOVIE,
     TOGGLE_MOVIE_PLAYER, UPDATE_MOVIE_PAGE
 } from "../actions/types";
@@ -11,6 +11,7 @@ import {
 const initialState = {
     movies: [],
     filtered: null,
+    searched: null,
     genres: [],
     movie: {},
     trailer: null,
@@ -51,6 +52,17 @@ export default function (state = initialState, action) {
                     ...state,
                     filtered: null
                 }
+        case FILTER_MOVIES_BY_NAME:
+            return state.filtered
+                ? {
+                    ...state,
+                    searched: state.filtered.filter(movie => movie.title.toLowerCase().includes(action.payload.toLowerCase()))
+                }
+                : {
+                    ...state,
+                    filtered: state.movies,
+                    searched: state.movies.filter(movie => movie.title.toLowerCase().includes(action.payload.toLowerCase()))
+                }
         case FETCH_MOVIE_TRAILER:
             return {
                 ...state,
@@ -65,6 +77,11 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 page: state.page + 1
+            }
+        case RESET_MOVIE_FILTERS:
+            return {
+                ...state,
+                searched: null
             }
         default:
             return state;

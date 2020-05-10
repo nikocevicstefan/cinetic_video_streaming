@@ -1,12 +1,11 @@
 import axios from 'axios';
 import {
-    FETCH_MOVIE_GENRES,
-    FETCH_MOVIE_TRAILER,
-    FETCH_MOVIES,
-    FETCH_MORE_MOVIES,
-    FILTER_MOVIES_BY_GENRE,
-    SELECT_MOVIE,
-    TOGGLE_MOVIE_PLAYER, UPDATE_MOVIE_PAGE, SET_LOADING
+    FETCH_MOVIE_GENRES, FETCH_MOVIE_TRAILER,
+    FETCH_MOVIES, FETCH_MORE_MOVIES,
+    FILTER_MOVIES_BY_GENRE, SELECT_MOVIE,
+    TOGGLE_MOVIE_PLAYER, UPDATE_MOVIE_PAGE,
+    SET_LOADING, RESET_MOVIE_FILTERS,
+    FILTER_MOVIES_BY_NAME
 } from "./types";
 
 const API_KEY = 'cc5e64c3b7740570da7c503aa33d7a9e';
@@ -73,6 +72,18 @@ export const filterMoviesByGenre = (categoryId) => dispatch => {
         type: FILTER_MOVIES_BY_GENRE,
         payload: categoryId
     })
+}
+
+
+export const filterMoviesByName = (movieTitle) => dispatch => {
+    if (movieTitle.length === 1 || !movieTitle) {
+        dispatch({type: RESET_MOVIE_FILTERS})
+    } else {
+        dispatch({
+            type: FILTER_MOVIES_BY_NAME,
+            payload: movieTitle
+        })
+    }
 }
 
 export const toggleMoviePlayer = () => dispatch => dispatch({type: TOGGLE_MOVIE_PLAYER})

@@ -11,7 +11,8 @@ const TVShows = (props) => {
     let {
         shows, filtered, genres,
         show, page, fetchShows,
-        fetchShowGenres, loading
+        fetchShowGenres, loading,
+        searched
     } = props;
 
     useEffect(() => {
@@ -27,7 +28,7 @@ const TVShows = (props) => {
         <div>
             {loading ? <div className="video-content__loading"><Loading/></div> : <ShowPreview content={show}/>}
             <FilterContent genres={genres} type="tv"/>
-            <ContentGrid content={filtered ? filtered : shows}/>
+            <ContentGrid content={(searched) ? searched : (filtered) ? filtered : shows}/>
         </div>
     );
 };
@@ -35,6 +36,7 @@ const TVShows = (props) => {
 const mapStateToProps = (state) => ({
     shows: state.show.shows,
     filtered: state.show.filtered,
+    searched: state.show.searched,
     page: state.show.page,
     genres: state.show.genres,
     show: state.show.show,

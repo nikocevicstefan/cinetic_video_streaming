@@ -10,7 +10,7 @@ const Movies = (props) => {
     let {
         movies, filtered, genres, page,
         movie, fetchMovies, fetchMovieGenres,
-        loading
+        loading, searched
     } = props;
 
     useEffect(() => {
@@ -25,7 +25,7 @@ const Movies = (props) => {
         <div className="video-content">
             {loading ? <div className="video-content__loading"><Loading/></div> : <MoviePreview content={movie}/>}
             <FilterContent genres={genres} type="movie"/>
-            <ContentGrid content={filtered ? filtered : movies} type="movies"/>
+            <ContentGrid content={searched ? searched : filtered ? filtered : movies} type="movies"/>
         </div>
     );
 };
@@ -33,6 +33,7 @@ const Movies = (props) => {
 const mapStateToProps = (state) => ({
     movies: state.movie.movies,
     filtered: state.movie.filtered,
+    searched: state.movie.searched,
     page: state.movie.page,
     genres: state.movie.genres,
     movie: state.movie.movie,

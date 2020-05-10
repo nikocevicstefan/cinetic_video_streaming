@@ -1,10 +1,8 @@
 import axios from 'axios';
 import {
-    FETCH_MORE_SHOWS,
-    FETCH_SHOW_GENRES,
-    FETCH_SHOW_TRAILER,
-    FETCH_SHOWS,
-    FILTER_SHOWS_BY_GENRE,
+    FETCH_MORE_SHOWS, FETCH_SHOW_GENRES,
+    FETCH_SHOW_TRAILER, FETCH_SHOWS,
+    FILTER_SHOWS_BY_GENRE, FILTER_SHOWS_BY_NAME, RESET_SHOW_FILTERS,
     SELECT_SHOW, SET_LOADING,
     TOGGLE_SHOW_PLAYER, UPDATE_SHOW_PAGE
 } from "./types";
@@ -12,7 +10,7 @@ import {
 const API_KEY = 'cc5e64c3b7740570da7c503aa33d7a9e';
 
 export const fetchShows = (page = 1) => async dispatch => {
-    dispatch({type:SET_LOADING});
+    dispatch({type: SET_LOADING});
 
     try {
         const shows = await axios.get(`https://api.themoviedb.org/3/tv/popular?api_key=${API_KEY}&language=en-US&page=${page}`);
@@ -25,14 +23,14 @@ export const fetchShows = (page = 1) => async dispatch => {
         page === 1 && dispatch(selectShow(shows.data.results[0].id));
     } catch (e) {
         console.log('Error')
-    }finally {
-        dispatch({type:SET_LOADING});
+    } finally {
+        dispatch({type: SET_LOADING});
     }
 }
 
 
 export const selectShow = (showId) => async dispatch => {
-    dispatch({type:SET_LOADING});
+    dispatch({type: SET_LOADING});
 
     let show = await axios.get(`https://api.themoviedb.org/3/tv/${showId}?api_key=${API_KEY}&language=en-US`);
     dispatch({
@@ -41,7 +39,7 @@ export const selectShow = (showId) => async dispatch => {
     })
 
     dispatch(fetchShowTrailer(show.data.id))
-    dispatch({type:SET_LOADING});
+    dispatch({type: SET_LOADING});
 }
 
 export const fetchShowTrailer = (id) => async dispatch => {
@@ -71,6 +69,17 @@ export const filterShowsByGenre = (genreId) => dispatch => {
         type: FILTER_SHOWS_BY_GENRE,
         payload: genreId
     })
+}
+
+export const filterShowsByName = (showName) => dispatch => {
+    if (showName.length === 1 || !showName) {
+        dispatch({type: RESET_SHOW_FILTERS})
+    } else {
+        dispatch({
+            type: FILTER_SHOWS_BY_NAME,
+            payload: showName
+        })
+    }
 }
 
 export const updateShowPage = () => async dispatch => await dispatch({type: UPDATE_SHOW_PAGE})

@@ -3,20 +3,17 @@ import {
     FETCH_SHOW_GENRES,
     FETCH_SHOW_TRAILER,
     FETCH_SHOWS,
-    FILTER_SHOWS_BY_GENRE,
+    FILTER_SHOWS_BY_GENRE, FILTER_SHOWS_BY_NAME, RESET_SHOW_FILTERS,
     SELECT_SHOW,
     TOGGLE_SHOW_PLAYER, UPDATE_SHOW_PAGE
 } from "../actions/types";
 
 const initialState = {
-    shows: [],
-    filtered: null,
-    genres: [],
-    show: {},
-    seasons: [],
-    trailer: null,
-    trailerPlaying: false,
-    page: 1
+    shows: [], filtered: null,
+    genres: [], show: {},
+    seasons: [], trailer: null,
+    trailerPlaying: false, page: 1,
+    searched: null
 }
 
 export default function (state = initialState, action) {
@@ -46,13 +43,26 @@ export default function (state = initialState, action) {
             };
         case FILTER_SHOWS_BY_GENRE:
             return parseInt(action.payload) !== -1
-                ?  {
+                ? {
                     ...state,
-                    filtered: state.shows.filter(show => show.genre_ids.includes(parseInt(action.payload)))
+                    filtered: state.shows.filter(show => show.genre_ids.includes(parseInt(action.payload))),
+                    searched: null
                 }
                 : {
                     ...state,
-                    filtered: null
+                    filtered: null,
+                    searched: null
+                }
+        case FILTER_SHOWS_BY_NAME:
+            return state.filtered
+                ? {
+                    ...state,
+                    searched: state.filtered.filter(show => show.name.toLowerCase().includes(action.payload.toLowerCase()))
+                }
+                : {
+                    ...state,
+                    filtered: state.shows,
+                    searched: state.shows.filter(show => show.name.toLowerCase().includes(action.payload.toLowerCase()))
                 }
         case FETCH_SHOW_TRAILER:
             return {
@@ -68,6 +78,11 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 page: state.page + 1
+            }
+        case RESET_SHOW_FILTERS:
+            return {
+                ...state,
+                searched: null
             }
         default:
             return state;
