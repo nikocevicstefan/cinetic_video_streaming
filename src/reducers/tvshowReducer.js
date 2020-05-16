@@ -1,4 +1,5 @@
 import {
+    DELETE_MOVIE, DELETE_SHOW,
     FETCH_MORE_SHOWS,
     FETCH_SHOW_GENRES,
     FETCH_SHOW_TRAILER,
@@ -84,6 +85,24 @@ export default function (state = initialState, action) {
                 ...state,
                 searched: null
             }
+        case DELETE_SHOW:
+            return state.searched
+                ? {
+                    ...state,
+                    searched: state.searched.filter(show => show.id !== action.payload),
+                    filtered: state.filtered.filter(show => show.id !== action.payload),
+                    shows: state.shows.filter(show => show.id !== action.payload)
+                }
+                : (state.filtered)
+                    ? {
+                        ...state,
+                        filtered: state.filtered.filter(show => show.id !== action.payload),
+                        shows: state.shows.filter(show => show.id !== action.payload)
+                    }
+                    : {
+                        ...state,
+                        shows: state.shows.filter(show => show.id !== action.payload)
+                    };
         default:
             return state;
     }

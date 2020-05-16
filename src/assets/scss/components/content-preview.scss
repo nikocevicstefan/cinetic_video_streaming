@@ -15,7 +15,8 @@
 
   &__logo--mobile {
     max-height: 30vh;
-    img{
+
+    img {
       height: auto;
       width: 100%;
       border-radius: 10px;
@@ -52,7 +53,8 @@
     width: 90%;
     display: flex;
     justify-content: space-between;
-    *{
+
+    * {
       margin-right: 1rem;
     }
   }

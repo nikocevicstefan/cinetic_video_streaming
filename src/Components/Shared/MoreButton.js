@@ -2,7 +2,7 @@ import React from 'react';
 
 const MoreButton = (props) => {
     return (
-        <button className={`more-button`} >...</button>
+        <button className={`more-button`}>...</button>
     );
 };
 

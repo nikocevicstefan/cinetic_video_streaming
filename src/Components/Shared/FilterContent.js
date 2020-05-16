@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import {filterMoviesByGenre, filterMoviesByName} from "../../actions/movieAction";
 import {filterShowsByGenre, filterShowsByName} from "../../actions/tvshowAction";
-import Search from  'assets/img/icons/search.svg'
+import Search from 'assets/img/icons/search.svg'
 
 const FilterContent = (props) => {
     const {
@@ -23,8 +23,8 @@ const FilterContent = (props) => {
     const onSearchChange = (event) => {
         setSearchValue(event.target.value);
         type === 'movie'
-        ? filterMoviesByName(searchValue)
-        : filterShowsByName(searchValue)
+            ? filterMoviesByName(searchValue)
+            : filterShowsByName(searchValue)
     }
 
 
@@ -40,7 +40,7 @@ const FilterContent = (props) => {
                     }
                 </select>
             </div>
-             <div className="filter-content__search">
+            <div className="filter-content__search">
                 <input type="text" onChange={onSearchChange} value={searchValue}/>
                 <img src={Search} alt="search icon"/>
             </div>

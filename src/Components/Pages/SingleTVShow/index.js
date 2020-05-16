@@ -13,7 +13,8 @@ const SingleTVShow = (props) => {
     }
     return (
         <div className="single-show">
-            <div className="single-show__header" style={{backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.73)),url(${headerImg})`,}}>
+            <div className="single-show__header"
+                 style={{backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.73)),url(${headerImg})`,}}>
                 <h1 className="single-show__title">{show.name}</h1>
             </div>
             <div className="single-show__content">
@@ -30,8 +31,10 @@ const SingleTVShow = (props) => {
                             return (
                                 <div className="content-grid__season" key={uuidv4()}>
                                     <div className="content-item">
-                                        <img src={`http://image.tmdb.org/t/p/w500/${season.poster_path}`} onError={imageError} alt=""/>
-                                        <p className="content-grid__season__episode-count">{season.name}<span style={{marginLeft:'auto'}}>, {season.episode_count} episodes </span></p>
+                                        <img src={`http://image.tmdb.org/t/p/w500/${season.poster_path}`}
+                                             onError={imageError} alt=""/>
+                                        <p className="content-grid__season__episode-count">{season.name}<span
+                                            style={{marginLeft: 'auto'}}>, {season.episode_count} episodes </span></p>
                                     </div>
                                 </div>
                             )
@@ -40,7 +43,7 @@ const SingleTVShow = (props) => {
                     {
                         loading &&
                         <div className="content-item--loading">
-                            <Loading />
+                            <Loading/>
                         </div>
 
                     }

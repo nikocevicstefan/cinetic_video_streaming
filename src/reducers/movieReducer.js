@@ -1,10 +1,9 @@
 import {
-    FETCH_MORE_MOVIES,
-    FETCH_MOVIE_GENRES,
-    FETCH_MOVIE_TRAILER,
-    FETCH_MOVIES,
-    FILTER_MOVIES_BY_GENRE, FILTER_MOVIES_BY_NAME, FILTER_SHOWS_BY_NAME, RESET_MOVIE_FILTERS, RESET_SHOW_FILTERS,
-    SELECT_MOVIE,
+    DELETE_MOVIE,
+    FETCH_MORE_MOVIES, FETCH_MOVIE_GENRES,
+    FETCH_MOVIE_TRAILER, FETCH_MOVIES,
+    FILTER_MOVIES_BY_GENRE, FILTER_MOVIES_BY_NAME,
+    RESET_MOVIE_FILTERS, SELECT_MOVIE,
     TOGGLE_MOVIE_PLAYER, UPDATE_MOVIE_PAGE
 } from "../actions/types";
 
@@ -50,7 +49,8 @@ export default function (state = initialState, action) {
                     filtered: state.movies.filter(movie => movie.genre_ids.includes(parseInt(action.payload)))
                 } : {
                     ...state,
-                    filtered: null
+                    filtered: null,
+                    searched: null
                 }
         case FILTER_MOVIES_BY_NAME:
             return state.filtered
@@ -83,6 +83,24 @@ export default function (state = initialState, action) {
                 ...state,
                 searched: null
             }
+        case DELETE_MOVIE:
+            return state.searched
+                ? {
+                    ...state,
+                    searched: state.searched.filter(movie => movie.id !== action.payload),
+                    filtered: state.filtered.filter(movie => movie.id !== action.payload),
+                    movies: state.movies.filter(movie => movie.id !== action.payload)
+                }
+                : (state.filtered)
+                    ? {
+                        ...state,
+                        filtered: state.filtered.filter(movie => movie.id !== action.payload),
+                        movies: state.movies.filter(movie => movie.id !== action.payload)
+                    }
+                    : {
+                        ...state,
+                        movies: state.movies.filter(movie => movie.id !== action.payload)
+                    };
         default:
             return state;
     }

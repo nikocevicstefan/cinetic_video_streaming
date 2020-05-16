@@ -11,6 +11,7 @@ export const TOGGLE_MOVIE_PLAYER = 'TOGGLE_MOVIE_PLAYER';
 export const FETCH_MORE_MOVIES = 'FETCH_MORE_MOVIES';
 export const UPDATE_MOVIE_PAGE = 'UPDATE_MOVIE_PAGE';
 export const RESET_MOVIE_FILTERS = 'RESET_MOVIE_FILTERS';
+export const DELETE_MOVIE = 'DELETE_MOVIE';
 
 //tv shows
 export const FETCH_SHOWS = 'FETCH_SHOWS';
@@ -23,7 +24,7 @@ export const TOGGLE_SHOW_PLAYER = 'TOGGLE_SHOW_PLAYER';
 export const FETCH_MORE_SHOWS = 'FETCH_MORE_SHOWS';
 export const UPDATE_SHOW_PAGE = 'UPDATE_SHOW_PAGE';
 export const RESET_SHOW_FILTERS = 'RESET_SHOW_FILTERS';
-
+export const DELETE_SHOW = 'DELETE_SHOW';
 
 
 //user actions

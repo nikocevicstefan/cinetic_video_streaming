@@ -29,12 +29,12 @@ const ContentDetails = (props) => {
                     (type === 'movie' && movieTrailer) || (type === 'show' && showTrailer)
                         ? <div className="content-preview__cta">
                             <ActionButton text="Play" onclick={playTrailerHandler}/>
-                            {type === 'show' && <Link to="/show-details"><MoreButton /></Link>}
+                            {type === 'show' && <Link to="/show-details"><MoreButton/></Link>}
                         </div>
                         :
                         <div className="content-preview__cta">
                             <ActionButton text="No trailer available" disabled={true}/>
-                            {type === 'show' && <MoreButton />}
+                            {type === 'show' && <MoreButton/>}
                         </div>
                 }
             </div>

@@ -5,13 +5,13 @@ import {
     FILTER_MOVIES_BY_GENRE, SELECT_MOVIE,
     TOGGLE_MOVIE_PLAYER, UPDATE_MOVIE_PAGE,
     SET_LOADING, RESET_MOVIE_FILTERS,
-    FILTER_MOVIES_BY_NAME
+    FILTER_MOVIES_BY_NAME, DELETE_MOVIE
 } from "./types";
 
 const API_KEY = 'cc5e64c3b7740570da7c503aa33d7a9e';
 
 export const fetchMovies = (page = 1) => async dispatch => {
-    dispatch({type:SET_LOADING});
+    dispatch({type: SET_LOADING});
 
     try {
         const {data: {results: movies}} = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=${page}`);
@@ -26,14 +26,14 @@ export const fetchMovies = (page = 1) => async dispatch => {
     } catch (e) {
         //to be expanded
         console.error(e);
-    }finally {
+    } finally {
         dispatch({type: SET_LOADING});
     }
 
 }
 
 export const selectMovie = (movieId) => async dispatch => {
-    dispatch({type:SET_LOADING});
+    dispatch({type: SET_LOADING});
 
     let {data} = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=en-US`);
     dispatch({
@@ -42,7 +42,7 @@ export const selectMovie = (movieId) => async dispatch => {
     })
 
     dispatch(fetchMovieTrailer(data.id));
-    dispatch({type:SET_LOADING});
+    dispatch({type: SET_LOADING});
 }
 
 export const fetchMovieTrailer = (id) => async dispatch => {
@@ -65,7 +65,7 @@ export const fetchMovieGenres = () => async dispatch => {
     })
 }
 
-export const updateMoviePage = () => async dispatch => await dispatch({type: UPDATE_MOVIE_PAGE})
+export const updateMoviePage = () => async dispatch => await dispatch({type: UPDATE_MOVIE_PAGE});
 
 export const filterMoviesByGenre = (categoryId) => dispatch => {
     dispatch({
@@ -84,6 +84,13 @@ export const filterMoviesByName = (movieTitle) => dispatch => {
             payload: movieTitle
         })
     }
+}
+
+export const deleteMovie = (movieId) => dispatch => {
+    dispatch({
+        type: DELETE_MOVIE,
+        payload: movieId
+    });
 }
 
 export const toggleMoviePlayer = () => dispatch => dispatch({type: TOGGLE_MOVIE_PLAYER})

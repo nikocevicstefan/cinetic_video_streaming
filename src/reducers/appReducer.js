@@ -5,13 +5,13 @@ const initialState = {
 }
 
 export default function (state = initialState, action) {
-        switch (action.type) {
-            case SET_LOADING:
-                return{
-                    ...state,
-                    loading: !state.loading
-                }
-            default:
-                return state
-        }
+    switch (action.type) {
+        case SET_LOADING:
+            return {
+                ...state,
+                loading: !state.loading
+            }
+        default:
+            return state
+    }
 }

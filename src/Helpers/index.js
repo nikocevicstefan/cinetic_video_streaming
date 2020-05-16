@@ -7,3 +7,17 @@ export const ucfirst = (text) => {
 export const underscoreToSpace = (text) => {
     return text.replace('_', ' ');
 };
+
+export const getLoggedInUser = () => {
+    const loggedInUser = window.localStorage.getItem('loggedInUser');
+    return JSON.parse(loggedInUser);
+};
+
+export const isAdmin = () => {
+    const data = getLoggedInUser();
+    if(data){
+        return data.user.role === 'admin'
+    }else {
+        return false;
+    }
+};

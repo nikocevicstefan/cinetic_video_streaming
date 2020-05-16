@@ -1,13 +1,26 @@
-.content-item{
+.content-item {
   width: 100%;
   cursor: pointer;
+  position: relative;
 
   img {
     width: 100%;
     border-radius: 5px;
   }
 
-  &--loading{
+  &__delete{
+    cursor: pointer;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    background: $secondary-purple;
+    border-radius: 5px;
+    color: white;
+  }
+
+  &--loading {
     color: white;
     display: flex;
     flex-direction: column;

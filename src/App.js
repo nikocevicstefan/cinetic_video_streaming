@@ -15,22 +15,31 @@ import Login from "./Components/Pages/Login";
 import NotFound from "./Components/Pages/NotFound";
 import Wrapper from "Components/Pages/Wrapper";
 import SingleTVShow from "./Components/Pages/SingleTVShow";
+import {getLoggedInUser} from "./Helpers";
 
 const redirect = () => window.location.replace('/');
 
 const App = () => {
 
-    const [user, setUser] = useState(true);
+    const [user, setUser] = useState(null);
+    const [isAdmin, setIsAdmin] = useState(false);
 
     useEffect(function fetchUser() {
-        const loggedInUser = window.localStorage.getItem('loggedInUser');
-        //setUser(JSON.parse(loggedInUser));
+        const authData = getLoggedInUser();
+        if (authData) {
+            setUser(authData);
+            setIsAdmin(authData.user.role === 'admin')
+        }
     }, []);
 
     return (
         <Provider store={store}>
             <div className="App">
-                <Sidebar/>
+                <Sidebar
+                    user={user}
+                    isAdmin={isAdmin}
+                    clearAuthData={setUser}
+                />
                 <Wrapper>
                     <Switch>
                         <Route exact path="/" component={Home}/>

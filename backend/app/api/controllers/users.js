@@ -3,11 +3,12 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 module.exports = {
     create: function (req, res, next) {
-
+        const role = req.body.role ? 'admin' : 'client';
         userModel.create({
             name: req.body.name,
             email: req.body.email,
-            password: req.body.password
+            password: req.body.password,
+            role: role
         }, function (err, result) {
             if (err)
                 next(err);
@@ -41,13 +42,13 @@ module.exports = {
                         res.json({
                             status: "success",
                             message: "Login Successful!",
-                            data: {user: {id: userInfo._id, name: userInfo.name}, token: token}
+                            data: {user: {id: userInfo._id, name: userInfo.name, role: userInfo.role}, token: token}
                         });
                     } else {
                         // res.json({status: "error", message: "Invalid email/password.", data: null});
                         next('error')
                     }
-                }else {
+                } else {
                     next('error')
                 }
             })

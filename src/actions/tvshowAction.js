@@ -1,8 +1,9 @@
 import axios from 'axios';
 import {
-    FETCH_MORE_SHOWS, FETCH_SHOW_GENRES,
-    FETCH_SHOW_TRAILER, FETCH_SHOWS,
-    FILTER_SHOWS_BY_GENRE, FILTER_SHOWS_BY_NAME, RESET_SHOW_FILTERS,
+    DELETE_SHOW, FETCH_MORE_SHOWS,
+    FETCH_SHOW_GENRES, FETCH_SHOW_TRAILER,
+    FETCH_SHOWS, FILTER_SHOWS_BY_GENRE,
+    FILTER_SHOWS_BY_NAME, RESET_SHOW_FILTERS,
     SELECT_SHOW, SET_LOADING,
     TOGGLE_SHOW_PLAYER, UPDATE_SHOW_PAGE
 } from "./types";
@@ -80,6 +81,13 @@ export const filterShowsByName = (showName) => dispatch => {
             payload: showName
         })
     }
+}
+
+export const deleteShow = (showId) => dispatch => {
+    dispatch({
+        type: DELETE_SHOW,
+        payload: showId
+    });
 }
 
 export const updateShowPage = () => async dispatch => await dispatch({type: UPDATE_SHOW_PAGE})

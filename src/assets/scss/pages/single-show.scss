@@ -1,6 +1,7 @@
-.single-show{
+.single-show {
   color: white;
-  &__header{
+
+  &__header {
     margin-top: 5rem;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
@@ -9,12 +10,13 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    img{
+
+    img {
       width: 100%;
       height: auto;
     }
 
-    h1{
+    h1 {
       font-size: 4rem;
       color: white;
       position: absolute;
@@ -24,66 +26,75 @@
     }
   }
 
-  &__description{
+  &__description {
     margin: 0 auto;
     padding: 3rem 2rem;
     background-color: $secondary-purple;
-    h1{
+
+    h1 {
       font-size: 4rem;
     }
-    p{
+
+    p {
       margin-top: 2rem;
       font-size: 2rem;
     }
   }
 
-  &__seasons{
+  &__seasons {
     background-color: $secondary-purple;
     padding: 0 2rem;
-    &__title{
+
+    &__title {
       padding-top: 5rem;
       font-size: 4rem;
     }
-    .content-grid{
+
+    .content-grid {
       margin-top: 2rem;
 
-      p{
+      p {
         color: rgba(255, 255, 255, 0.55);
       }
     }
   }
 
-  @media screen and(min-width: 1024px){
-    &__header{
+  @media screen and(min-width: 1024px) {
+    &__header {
       height: 70vh;
-      h1{
+
+      h1 {
         font-size: 6rem;
         padding: 3rem;
       }
     }
 
-    &__description{
+    &__description {
       padding: 5rem 3rem 0 3rem;
-      h1{
+
+      h1 {
         font-size: 6rem;
       }
-      p{
+
+      p {
         font-size: 2.2rem;
       }
     }
 
-    &__seasons{
+    &__seasons {
       padding: 3rem 3rem;
-      &__title{
+
+      &__title {
         font-size: 6rem;
       }
-      .content-grid{
+
+      .content-grid {
         margin-top: 2rem;
       }
     }
   }
 
-  @media screen and(min-width: 1800px){
+  @media screen and(min-width: 1800px) {
 
   }
 }

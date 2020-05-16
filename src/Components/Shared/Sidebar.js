@@ -3,24 +3,18 @@ import {NavLink} from "react-router-dom";
 import openSidebar from '../../assets/img/icons/right.svg'
 import closeSidebar from '../../assets/img/icons/back.svg'
 
-const Sidebar = () => {
-
+const Sidebar = (props) => {
     const [sidebar, setSidebar] = useState(false);
-    const [user, setUser] = useState(true);
-
-    useEffect(function fetchUser() {
-        const loggedInUser = window.localStorage.getItem('loggedInUser');
-        //setUser(JSON.parse(loggedInUser));
-    }, []);
+    const {user, isAdmin, clearAuthData} = props;
 
     const logoutHandler = () => {
         window.localStorage.removeItem('loggedInUser');
-        setUser(null);
+        clearAuthData(null);
         window.location.replace('/');
-    }
+    };
     const toggleSidebar = () => {
         setSidebar(!sidebar);
-    }
+    };
     return (
         <div className={`sidebar ${sidebar && 'opened'}`} onClick={toggleSidebar}>
             <div className="sidebar__toggler" onClick={toggleSidebar}>
@@ -46,7 +40,12 @@ const Sidebar = () => {
                 {!user &&
                 <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link"
                                                        to="/register">Register</NavLink></li>}
-                {user && <li className="sidebar__item" onClick={logoutHandler} style={{cursor: "pointer"}}> <strong>Logout </strong></li>}
+                {(user && isAdmin) &&
+                <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link"
+                                                       to="/dashboard">Dashboard</NavLink></li>
+                }
+                {user && <li className="sidebar__item" onClick={logoutHandler} style={{cursor: "pointer"}}>
+                    <strong>Logout </strong></li>}
             </ul>
         </div>
     );
