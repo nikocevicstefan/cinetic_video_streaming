@@ -21,15 +21,15 @@ const redirect = () => window.location.replace('/');
 
 const App = () => {
 
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState(true);
     const [isAdmin, setIsAdmin] = useState(false);
 
     useEffect(function fetchUser() {
-        const authData = getLoggedInUser();
+       /* const authData = getLoggedInUser();
         if (authData) {
             setUser(authData);
             setIsAdmin(authData.user.role === 'admin')
-        }
+        }*/
     }, []);
 
     return (

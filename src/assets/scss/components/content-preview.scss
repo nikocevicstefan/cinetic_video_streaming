@@ -9,6 +9,31 @@
   margin-bottom: 5rem;
   width: 100%;
 
+  &__header {
+    margin-top: 5rem;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    height: 40vh;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+
+    h1 {
+      font-size: 4rem;
+      color: white;
+      position: absolute;
+      bottom: 0;
+      padding: 2rem;
+      word-wrap: break-word;
+    }
+  }
+
   * {
     margin-top: 1rem;
   }
