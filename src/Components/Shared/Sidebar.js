@@ -40,10 +40,7 @@ const Sidebar = (props) => {
                 {!user &&
                 <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link"
                                                        to="/register">Register</NavLink></li>}
-                {(user && isAdmin) &&
-                <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link"
-                                                       to="/dashboard">Dashboard</NavLink></li>
-                }
+               
                 {user && <li className="sidebar__item" onClick={logoutHandler} style={{cursor: "pointer"}}>
                     <strong>Logout </strong></li>}
             </ul>
