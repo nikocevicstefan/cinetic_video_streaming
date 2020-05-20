@@ -1,6 +1,15 @@
 .single-show {
   color: white;
+  animation: 1s pageSlideInLeft ease-in-out;
 
+  @keyframes pageSlideInLeft {
+    0%{
+      transform: translateX(100%);
+    }
+    100%{
+      transform: translateX(0);
+    }
+  }
   &__header {
     margin-top: 5rem;
     border-top-right-radius: 10px;

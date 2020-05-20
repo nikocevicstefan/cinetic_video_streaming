@@ -4,6 +4,7 @@
   color: white;
   margin: 5px;
   border-radius: 5px;
+  transition: 2s all ease-in-out;
 
   &__shown {
     cursor: pointer;
@@ -19,8 +20,30 @@
     display: none;
 
     &.false {
+      animation: slideOut 1.3s ease-in-out;
       display: block;
     }
   }
 
+  @keyframes slideOut{
+    0%{
+      transform: translateY(-100%);
+      opacity: 0%;
+    }
+
+    45%{
+      transform: translateY(0);
+      opacity: 100%;
+    }
+
+    70%{
+      transform: scale(1.005);
+    }
+    85%{
+      transform: scale(0.995);
+    }
+    100%{
+      transform: scale(1);
+    }
+  }
 }

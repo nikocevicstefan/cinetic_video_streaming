@@ -101,7 +101,6 @@
       img {
         height: 100%;
         border-radius: 20px;
-        transform: perspective(400px) rotateY(-10deg);
       }
     }
   }
@@ -110,8 +109,23 @@
     &__img {
       img {
         transform: perspective(700px) rotateY(-10deg);
+        animation: slideUp 1s ease-in-out;
       }
     }
   }
 
+
+  @keyframes slideUp {
+    0%{
+      opacity: 0%;
+      transform: translateY(-100%);
+    }
+    75%{
+      opacity: 100%;
+      transform: translateY(0);
+    }
+    100%{
+      transform: perspective(700px) rotateY(-10deg);
+    }
+  }
 }

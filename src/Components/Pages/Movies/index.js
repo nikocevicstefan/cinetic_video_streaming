@@ -23,7 +23,7 @@ const Movies = (props) => {
 
     return (
         <div className="video-content">
-            {loading ? <div className="video-content__loading"><Loading/></div> : <MoviePreview content={movie}/>}
+            <MoviePreview content={movie}/>
             <FilterContent genres={genres} type="movie"/>
             <ContentGrid content={searched ? searched : filtered ? filtered : movies} type="movies"/>
         </div>

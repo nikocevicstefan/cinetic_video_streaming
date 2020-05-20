@@ -18,6 +18,7 @@
 
   &__image {
     flex-basis: 50%;
+    animation: 1s pageSlideInLeft ease-in-out;
 
     img {
       width: 100%;
@@ -25,6 +26,7 @@
   }
 
   &__text {
+    animation: 1s pageSlideInRight ease-in-out;
     width: 100%;
     flex-basis: 40%;
     display: flex;
@@ -114,6 +116,29 @@
 
     &__details {
       font-size: 3rem;
+    }
+  }
+
+  @keyframes pageSlideInLeft {
+    0%{
+      transform: translateX(100%);
+    }
+    80%{
+      transform: translateX(-5%);
+    }
+    100%{
+      transform: translateX(0);
+    }
+  }
+  @keyframes pageSlideInRight {
+    0%{
+      transform: translateX(-100%);
+    }
+    80%{
+      transform: translateX(5%);
+    }
+    100%{
+      transform: translateX(0);
     }
   }
 }

@@ -26,7 +26,7 @@ const TVShows = (props) => {
 
     return (
         <div>
-            {loading ? <div className="video-content__loading"><Loading/></div> : <ShowPreview content={show}/>}
+            <ShowPreview content={show}/>
             <FilterContent genres={genres} type="tv"/>
             <ContentGrid content={(searched) ? searched : (filtered) ? filtered : shows}/>
         </div>
