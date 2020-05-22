@@ -25,7 +25,8 @@ const Register = (props) => {
         const userData = {
             name: name,
             email: email,
-            password: password
+            password: password,
+            role: 'client'
         };
 
         register(userData);

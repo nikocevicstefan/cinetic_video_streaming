@@ -28,12 +28,14 @@ export const DELETE_SHOW = 'DELETE_SHOW';
 
 
 //user actions
-export const REGISTER = 'REGISTER'
-export const LOGIN = 'LOGIN'
-export const LOGOUT = 'LOGOUT'
+export const GET_USERS = 'GET_USERS';
+export const DELETE_USER = 'DELETE_USER';
+export const REGISTER = 'REGISTER';
+export const LOGIN = 'LOGIN';
+export const LOGOUT = 'LOGOUT';
 
 //App-wide actions
-export const SET_LOADING = 'SET_LOADING'
+export const SET_LOADING = 'SET_LOADING';
 
 
 

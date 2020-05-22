@@ -34,6 +34,8 @@ const Sidebar = (props) => {
                                                        to="/about-us"> About Us</NavLink></li>
                 <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link"
                                                        to="/faq"> FAQ</NavLink></li>
+                {isAdmin && <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link"
+                                                       to="/dashboard">Dashboard</NavLink></li>}
                 {!user &&
                 <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link"
                                                        to="/login">Login</NavLink></li>}

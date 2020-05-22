@@ -31,3 +31,7 @@ body {
 button {
   margin: 0;
 }
+
+input, input:active, select, select:active{
+  outline: none;
+}

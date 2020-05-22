@@ -16,20 +16,21 @@ import NotFound from "./Components/Pages/NotFound";
 import Wrapper from "Components/Pages/Wrapper";
 import SingleTVShow from "./Components/Pages/SingleTVShow";
 import {getLoggedInUser} from "./Helpers";
+import Dashboard from "./Components/Pages/Dashboard";
 
 const redirect = () => window.location.replace('/');
 
 const App = () => {
 
-    const [user, setUser] = useState(true);
+    const [user, setUser] = useState(false);
     const [isAdmin, setIsAdmin] = useState(false);
 
     useEffect(function fetchUser() {
-       /* const authData = getLoggedInUser();
+        const authData = getLoggedInUser();
         if (authData) {
             setUser(authData);
             setIsAdmin(authData.user.role === 'admin')
-        }*/
+        }
     }, []);
 
     return (
@@ -48,6 +49,7 @@ const App = () => {
                         <Route exact path="/show-details" component={user ? SingleTVShow : redirect}/>
                         <Route exact path="/faq" component={FAQ}/>
                         <Route exact path="/about-us" component={About}/>
+                        <Route exact path="/dashboard" component={isAdmin ? Dashboard : redirect}/>
                         <Route exact path="/register" component={user ? redirect : Register}/>
                         <Route exact path="/login" component={user ? redirect : Login}/>
                         <Route component={NotFound}/>

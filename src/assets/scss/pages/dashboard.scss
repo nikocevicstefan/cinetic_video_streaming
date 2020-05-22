@@ -1,0 +1,79 @@
+.dashboard {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  color: white;
+
+  &__header {
+    margin: 5rem 0 10rem 0;
+    font-size: 8rem;
+  }
+
+  &__users {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-column-gap: 60px;
+
+    &__table {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    &__form {
+      .form__card {
+        width: 100% !important;
+        margin: 0;
+      }
+    }
+  }
+
+  &__stats{
+    display: flex;
+    justify-content: space-between;
+    margin: 5rem 0;
+
+    &__card{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: column;
+      background-color: $secondary-purple;
+      padding: 2rem;
+      box-shadow: $box-shadow-purple;
+      width: 20%;
+      .card__number{
+        font-size: 4rem;
+      }
+
+      .card__title{
+        font-size: 2rem;
+      }
+    }
+  }
+
+  h3 {
+    font-size: 3rem;
+  }
+
+  select {
+    width: 100%;
+    font-size: 1.7rem;
+    font-family: Montserrat-Regular, sans-serif;
+    background: $secondary-purple;
+    color: white;
+    padding: 2rem 1rem;
+
+    &:focus, &:active {
+      outline: none;
+    }
+
+    option {
+      &:focus, &:active {
+        outline: none;
+        border: none;
+      }
+    }
+  }
+}
