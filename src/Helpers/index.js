@@ -21,3 +21,12 @@ export const isAdmin = () => {
         return false;
     }
 };
+
+export const isPremium = () => {
+    const data = getLoggedInUser();
+    if(data){
+        return data.user.subscription === 'premium'
+    }else {
+        return false;
+    }
+};

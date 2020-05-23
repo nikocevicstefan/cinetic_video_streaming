@@ -5,7 +5,7 @@ import closeSidebar from '../../assets/img/icons/back.svg'
 
 const Sidebar = (props) => {
     const [sidebar, setSidebar] = useState(false);
-    const {user, isAdmin, clearAuthData} = props;
+    const {user, isAdmin, isPremium, clearAuthData} = props;
 
     const logoutHandler = () => {
         window.localStorage.removeItem('loggedInUser');
@@ -28,7 +28,7 @@ const Sidebar = (props) => {
                                                        to="/"> Home</NavLink></li>
                 {user && <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link"
                                                                 to="/movies"> Movies</NavLink></li>}
-                {user && <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link"
+                {(isAdmin || isPremium) && <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link"
                                                                 to="/tv-shows"> TV Shows</NavLink></li>}
                 <li className="sidebar__item"><NavLink exact activeClassName="active" className="sidebar__link"
                                                        to="/about-us"> About Us</NavLink></li>

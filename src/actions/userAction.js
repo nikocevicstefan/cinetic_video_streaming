@@ -2,7 +2,7 @@ import axios from 'axios';
 import {toast} from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
-import {DELETE_USER, GET_USERS, REGISTER, UPDATE_USER} from "./types";
+import {DELETE_USER, GET_USERS, REGISTER, SET_PREMIUM, UPDATE_USER} from "./types";
 
 const axiosConfig = {headers: {'Content-Type': 'application/json'}}
 const base_user_url = 'http://localhost:5000/users';
@@ -85,11 +85,10 @@ export const deleteUser = (userId) => async (dispatch) => {
 export const buyPremiumPlan = (userId) => async dispatch =>{
     try {
         const {data} = await axios.put(`${base_user_url}/${userId}`, {subscription: 'premium'});
-
-        dispatch({
-            type: UPDATE_USER,
-            payload: {id:userId, data: data.user}
-        });
+        let loggedInUser = JSON.parse(window.localStorage.getItem('loggedInUser'));
+        loggedInUser.user.subscription = 'premium';
+        window.localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
+        dispatch({type:SET_PREMIUM});
         toast.success(`You are now a premium user ${data.user.name}`);
     } catch (e) {
         toast.warn('Operation Failed!');

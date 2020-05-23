@@ -1,7 +1,8 @@
-import {GET_USERS, DELETE_USER, REGISTER, UPDATE_USER} from "../actions/types";
+import {GET_USERS, DELETE_USER, REGISTER, UPDATE_USER, SET_PREMIUM} from "../actions/types";
 
 const initialState = {
-    users: []
+    users: [],
+    premium: false
 };
 
 export default function (state = initialState, action) {
@@ -28,6 +29,11 @@ export default function (state = initialState, action) {
                 ...state,
                 users: [...state.users].concat(action.payload)
             };
+        case SET_PREMIUM:
+            return {
+                ...state,
+                premium: true
+            }
         default:
             return state;
     }

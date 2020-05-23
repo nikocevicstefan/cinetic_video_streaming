@@ -34,6 +34,8 @@ export const UPDATE_USER = 'UPDATE_USER';
 export const REGISTER = 'REGISTER';
 export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
+export const SET_ADMIN = 'SET_ADMIN';
+export const SET_PREMIUM = 'SET_PREMIUM';
 
 //App-wide actions
 export const SET_LOADING = 'SET_LOADING';

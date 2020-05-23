@@ -17,36 +17,40 @@ import Wrapper from "Components/Pages/Wrapper";
 import SingleTVShow from "./Components/Pages/SingleTVShow";
 import {getLoggedInUser} from "./Helpers";
 import Dashboard from "./Components/Pages/Dashboard";
+import {connect} from 'react-redux';
 
 const redirect = () => window.location.replace('/');
 
-const App = () => {
-
+const App = (props) => {
+    const {premium} = props;
     const [user, setUser] = useState(false);
     const [isAdmin, setIsAdmin] = useState(false);
+    const [isPremium, setIsPremium] = useState(false);
 
     useEffect(function fetchUser() {
         const authData = getLoggedInUser();
         if (authData) {
             setUser(authData);
-            setIsAdmin(authData.user.role === 'admin')
+            setIsAdmin(authData.user.role === 'admin');
+            setIsPremium(authData.user.subscription === 'premium')
         }
-    }, []);
+    }, [premium]);
+
 
     return (
-        <Provider store={store}>
             <div className="App">
                 <Sidebar
                     user={user}
                     isAdmin={isAdmin}
+                    isPremium={isPremium}
                     clearAuthData={setUser}
                 />
                 <Wrapper>
                     <Switch>
                         <Route exact path="/" render={() => <Home user={user}/>}/>
                         <Route exact path="/movies" component={user ? Movies : redirect}/>
-                        <Route exact path="/tv-shows" component={user ? TVShows : redirect}/>
-                        <Route exact path="/show-details" component={user ? SingleTVShow : redirect}/>
+                        <Route exact path="/tv-shows" component={(isPremium || isAdmin) ? TVShows : redirect}/>
+                        <Route exact path="/show-details" component={(isPremium || isAdmin) ? SingleTVShow : redirect}/>
                         <Route exact path="/faq" component={FAQ}/>
                         <Route exact path="/about-us" component={About}/>
                         <Route exact path="/dashboard" component={isAdmin ? Dashboard : redirect}/>
@@ -57,8 +61,9 @@ const App = () => {
                 </Wrapper>
                 <ScrollToTop/>
             </div>
-        </Provider>
     );
 }
-
-export default App;
+const mapStateToProps =(state) => ({
+    premium: state.user.premium
+});
+export default connect(mapStateToProps, {})(App);

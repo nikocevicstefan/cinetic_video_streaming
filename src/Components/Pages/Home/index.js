@@ -17,9 +17,20 @@ const Home = ({user}) => {
     return (
         <div className="homepage">
             <MainHeader user={user}/>
-            <ContentShowcase image={ShowcaseImageMovie} heading="Movies" text={moviesText} link={user ? `/movies` : `/register`}/>
-            <ContentShowcase image={ShowcaseImageShow} heading="TV Shows" text={tvhShowText} link={user ? `/tv-shows` : `/register`}
-                             classes="content-showcase content-showcase--reverse" onclick={toggleModal}/>
+            <ContentShowcase
+                image={ShowcaseImageMovie}
+                heading="Movies"
+                text={moviesText}
+                link={user ? `/movies` : `/register`}
+                type="movie"/>
+            <ContentShowcase
+                image={ShowcaseImageShow}
+                heading="TV Shows"
+                text={tvhShowText}
+                link={user ? `/tv-shows` : `/register`}
+                classes="content-showcase content-showcase--reverse"
+                onclick={toggleModal}
+                type="show"/>
             <Modal show={modal} handleClose={toggleModal} user={user}/>
             <ToastContainer autoClose={2000}/>
         </div>
