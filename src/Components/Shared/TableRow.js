@@ -9,7 +9,12 @@ const TableRow = ({user, onclick}) => {
         <div className="table-row">
             <p>{user.email}</p>
             <p>{user.name}</p>
-            <p>{user.role}</p>
+            {user.role === 'admin'
+                ?<p><i className="fas fa-crown"></i> Admin</p>
+                : user.subscription === 'default'
+                    ?<p><i className="fas fa-star-half-alt"></i> Customer</p>
+                    :<p><i className="fas fa-star"></i> Customer</p>
+            }
             {/*<button>remove</button>*/}
             <ActionButton text="Remove" onclick={deleteUserHandler}/>
         </div>

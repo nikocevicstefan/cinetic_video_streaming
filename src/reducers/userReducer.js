@@ -1,4 +1,4 @@
-import {GET_USERS, DELETE_USER, REGISTER} from "../actions/types";
+import {GET_USERS, DELETE_USER, REGISTER, UPDATE_USER} from "../actions/types";
 
 const initialState = {
     users: []
@@ -10,6 +10,13 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 users: action.payload
+            };
+        case UPDATE_USER:
+            return {
+                ...state,
+                users: state.users.map(user => {
+                    return user.id === action.payload.id ? action.payload.data : user
+                })
             };
         case DELETE_USER:
             return {

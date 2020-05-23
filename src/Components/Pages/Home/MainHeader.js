@@ -4,14 +4,7 @@ import HeaderImg from "assets/img/header2.jpg"
 import HeaderImgVertical from "assets/img/header2.jpg"
 import {Link} from "react-router-dom";
 
-const MainHeader = () => {
-
-    const [user, setUser] = useState(null);
-
-    useEffect(function fetchUser() {
-        const loggedInUser = window.localStorage.getItem('loggedInUser');
-        setUser(JSON.parse(loggedInUser));
-    }, []);
+const MainHeader = ({user}) => {
 
     return (
         <div className="main-header">

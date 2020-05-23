@@ -26,7 +26,8 @@ const Register = (props) => {
             name: name,
             email: email,
             password: password,
-            role: 'client'
+            role: 'client',
+            subscription: 'default'
         };
 
         register(userData);

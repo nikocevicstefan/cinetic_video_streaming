@@ -30,7 +30,8 @@ const Dashboard = (props) => {
             name: name,
             email: email,
             password: password,
-            role: 'admin'
+            role: 'admin',
+            subscription: 'invalid'
         };
 
         register(userData);
@@ -62,7 +63,7 @@ const Dashboard = (props) => {
                     }
                 </div>
                 <div className="dashboard__form">
-                    <h3>Add User</h3>
+                    <h3>Add Admin</h3>
                     <form className="form__card">
                         <div className="form-group">
                             <label htmlFor="">Name</label>
@@ -75,13 +76,6 @@ const Dashboard = (props) => {
                         <div className="form-group">
                             <label htmlFor="">Password</label>
                             <input type="password" name="password" onChange={setPassword} value={password}/>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="role">Role</label>
-                            <select name="role" id="role">
-                            <option value="client" selected>Client</option>
-                            <option value="admin" selected>Admin</option>
-                        </select>
                         </div>
                         <div className="register-page__button" onClick={handleFormSubmit}>
                             <ActionButton text='Submit'/>

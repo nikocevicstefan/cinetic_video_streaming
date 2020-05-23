@@ -2,7 +2,7 @@ import axios from 'axios';
 import {toast} from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
-import {DELETE_USER, GET_USERS, REGISTER} from "./types";
+import {DELETE_USER, GET_USERS, REGISTER, UPDATE_USER} from "./types";
 
 const axiosConfig = {headers: {'Content-Type': 'application/json'}}
 const base_user_url = 'http://localhost:5000/users';
@@ -12,7 +12,8 @@ export const register = (userData) => async dispatch => {
             name: userData.name,
             email: userData.email,
             password: userData.password,
-            role: userData.role
+            role: userData.role,
+            subscription: userData.subscription
         }, axiosConfig);
         toast.success(`User Registered:${data.user.name}`);
 
@@ -80,3 +81,17 @@ export const deleteUser = (userId) => async (dispatch) => {
         toast.warn('Operation Failed!');
     }
 };
+
+export const buyPremiumPlan = (userId) => async dispatch =>{
+    try {
+        const {data} = await axios.put(`${base_user_url}/${userId}`, {subscription: 'premium'});
+
+        dispatch({
+            type: UPDATE_USER,
+            payload: {id:userId, data: data.user}
+        });
+        toast.success(`You are now a premium user ${data.user.name}`);
+    } catch (e) {
+        toast.warn('Operation Failed!');
+    }
+}

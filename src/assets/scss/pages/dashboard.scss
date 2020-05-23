@@ -14,13 +14,6 @@
     grid-template-columns: 2fr 1fr;
     grid-column-gap: 60px;
 
-    &__table {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-direction: column;
-    }
-
     &__form {
       .form__card {
         width: 100% !important;
@@ -28,11 +21,14 @@
       }
     }
   }
+  &__table {
+    margin-bottom: 5rem;
+  }
 
   &__stats{
     display: flex;
     justify-content: space-between;
-    margin: 5rem 0;
+    margin-bottom: 5rem;
 
     &__card{
       display: flex;

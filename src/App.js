@@ -43,7 +43,7 @@ const App = () => {
                 />
                 <Wrapper>
                     <Switch>
-                        <Route exact path="/" component={Home}/>
+                        <Route exact path="/" render={() => <Home user={user}/>}/>
                         <Route exact path="/movies" component={user ? Movies : redirect}/>
                         <Route exact path="/tv-shows" component={user ? TVShows : redirect}/>
                         <Route exact path="/show-details" component={user ? SingleTVShow : redirect}/>
