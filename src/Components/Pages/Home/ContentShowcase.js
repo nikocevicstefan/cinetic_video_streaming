@@ -1,7 +1,7 @@
 import React from 'react';
 import ActionButton from "../../Shared/ActionButton";
 import {Link} from "react-router-dom";
-import {isPremium} from "../../../Helpers";
+import {isAdmin, isPremium} from "../../../Helpers";
 
 
 const ContentShowcase = (props) => {
@@ -20,7 +20,7 @@ const ContentShowcase = (props) => {
                             ? (<Link to={link}>
                                 <ActionButton text="Browse" classes="action-button--color-reverse"/>
                             </Link>)
-                            : isPremium()
+                            : (isPremium() || isAdmin())
                                 ? (
                                     <Link to={link}>
                                         <ActionButton text="Browse" classes="action-button--color-reverse"/>
@@ -29,7 +29,6 @@ const ContentShowcase = (props) => {
                                     <ActionButton text="Browse" classes="action-button--color-reverse" onclick={onclick}/>
                                 )
                     }
-
                 </div>
             </div>
         </div>
