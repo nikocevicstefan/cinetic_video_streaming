@@ -23,7 +23,7 @@ const redirect = () => window.location.replace('/');
 
 const App = (props) => {
     const {premium} = props;
-    const [user, setUser] = useState(true);
+    const [user, setUser] = useState(false);
     const [isAdmin, setIsAdmin] = useState(false);
     const [isPremium, setIsPremium] = useState(false);
 

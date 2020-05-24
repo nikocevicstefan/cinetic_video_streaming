@@ -5,6 +5,8 @@
   //border: 1px solid red;
   vertical-align: baseline;
   box-sizing: border-box;
+  //uncomment line below for laughs
+  //animation: 6s infinite allRotate;
 }
 
 html {
@@ -28,6 +30,8 @@ body {
   background: $main-purple;
 }
 
+
+
 button {
   margin: 0;
 }
@@ -36,4 +40,14 @@ a, a:active, a:hover, a:focus{
 }
 input, input:active, select, select:active{
   outline: none;
+}
+
+@keyframes allRotate {
+  0%{
+    transform: rotate(360deg);
+  }
+
+  100%{
+    transform: rotate(0deg);
+  }
 }
