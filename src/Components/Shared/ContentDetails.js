@@ -34,7 +34,7 @@ const ContentDetails = (props) => {
                         :
                         <div className="content-preview__cta">
                             <ActionButton text="No trailer available" disabled={true}/>
-                            {type === 'show' && <MoreButton/>}
+                            {type === 'show' && <Link to="/show-details" ><MoreButton/></Link>}
                         </div>
                 }
             </div>

@@ -39,6 +39,7 @@
       padding: 2rem;
       box-shadow: $box-shadow-purple;
       width: 20%;
+      border-radius: 7px;
       .card__number{
         font-size: 4rem;
       }
@@ -51,6 +52,7 @@
 
   h3 {
     font-size: 3rem;
+    margin-bottom: 2rem;
   }
 
   select {

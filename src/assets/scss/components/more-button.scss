@@ -12,6 +12,7 @@
   cursor: pointer;
   transition: .5s all ease-in-out;
   box-shadow: $box-shadow-purple;
+  text-decoration: none;
 
   &:hover, &:focus, &:not(disabled) {
     cursor: pointer;
@@ -19,6 +20,7 @@
     transition: all .2s;
     transform: translateY(-3px);
     box-shadow: $box-shadow-purple;
+    text-decoration: none;
   }
 
   &:active {

@@ -35,7 +35,6 @@ function validateUser(req, res, next) {
             next();
         }
     });
-
 }
 
 // express doesn't consider not found NotFound as an error so we need to handle NotFound explicitly
