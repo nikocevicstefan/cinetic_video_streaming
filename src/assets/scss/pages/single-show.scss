@@ -1,6 +1,7 @@
 .single-show {
   color: white;
   animation: 1s pageSlideInLeft ease-in-out;
+  margin-bottom: 5rem;
 
   @keyframes pageSlideInLeft {
     0%{
@@ -53,6 +54,8 @@
   &__seasons {
     background-color: $secondary-purple;
     padding: 0 2rem;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
 
     &__title {
       padding-top: 5rem;
