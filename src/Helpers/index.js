@@ -3,6 +3,9 @@ export const ucfirst = (text) => {
     return text[0].toUpperCase() + text.slice(1);
 };
 
+export const redirectTo = (path) => window.location.replace(path);
+
+
 //change all underscores to spaces in a string
 export const underscoreToSpace = (text) => {
     return text.replace('_', ' ');

@@ -16,14 +16,17 @@ const MainHeader = ({user}) => {
                     <h1 className="main-header__title">Unlimited movies, TV shows, and more.</h1>
                     <p className="main-header__subtext">The main streaming service for your favorite content</p>
                     <div className="main-header__cta">
-                        {!user &&
-                        <Link to='/register'>
-                            <ActionButton text="Subscribe"/>
-                        </Link>
+                        {!user
+                            ?
+                            <Link to='/register'>
+                                <ActionButton text="Subscribe"/>
+                            </Link>
+                            :
+                            <Link to={user ? '/movies' : '/register'}>
+                                <ActionButton text="Watch Now" classes="action-button--accent"/>
+                            </Link>
                         }
-                        <Link to={user ? '/movies' : '/register'}>
-                            <ActionButton text="Watch Now" classes="action-button--accent"/>
-                        </Link>
+
                     </div>
                 </div>
                 <div className="main-header__img">

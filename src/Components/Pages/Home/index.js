@@ -7,6 +7,7 @@ import {useToggle} from "../../../Hooks";
 import Modal from "../../Shared/Modal";
 import {ToastContainer} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import {isAdmin, isPremium, redirectTo} from "../../../Helpers";
 
 const Home = ({user}) => {
 
@@ -27,9 +28,9 @@ const Home = ({user}) => {
                 image={ShowcaseImageShow}
                 heading="TV Shows"
                 text={tvhShowText}
-                link={user ? `/tv-shows` : `/register`}
+                link={(isAdmin() || isPremium()) ? `/tv-shows` : `/register`}
                 classes="content-showcase content-showcase--reverse"
-                onclick={toggleModal}
+                onclick={user ? toggleModal : ()=>redirectTo('/register')}
                 type="show"/>
             <Modal show={modal} handleClose={toggleModal} user={user}/>
             <ToastContainer autoClose={2000}/>

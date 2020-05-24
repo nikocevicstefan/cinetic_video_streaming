@@ -68,7 +68,7 @@
 
   .content-showcase {
     width: 100%;
-    height: 100vh;
+    height: auto;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -78,6 +78,7 @@
     &__image {
       img {
         width: 85vw;
+        height: auto;
         margin: 0 auto;
         border-radius: 10px;
       }
