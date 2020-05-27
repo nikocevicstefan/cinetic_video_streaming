@@ -3,6 +3,7 @@ import {toast} from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
 import {DELETE_USER, GET_USERS, REGISTER, SET_PREMIUM, UPDATE_USER} from "./types";
+import {getToken} from "../Helpers";
 
 const axiosConfig = {headers: {'Content-Type': 'application/json'}}
 const base_user_url = 'http://localhost:5000/users';
@@ -56,7 +57,13 @@ export const login = (loginData) => async dispatch => {
 }
 
 export const getAllUsers = () => async (dispatch) => {
-    const users = await axios.get(`${base_user_url}/all`);
+    const users = await axios.get(`${base_user_url}/all`, {
+        headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer' + getToken()
+        }
+    });
+
     dispatch({
         type: GET_USERS,
         payload: users.data.users
@@ -70,7 +77,12 @@ export const deleteUser = (userId) => async (dispatch) => {
         return;
     }
     try {
-        const {data} = await axios.delete(`${base_user_url}/${userId}`);
+        const {data} = await axios.delete(`${base_user_url}/${userId}`, {
+            headers: {
+                'Content-Type': 'application/json',
+                'authorization': 'Bearer' + getToken()
+            }
+        });
 
         dispatch({
             type: DELETE_USER,
@@ -82,13 +94,17 @@ export const deleteUser = (userId) => async (dispatch) => {
     }
 };
 
-export const buyPremiumPlan = (userId) => async dispatch =>{
+export const buyPremiumPlan = (userId) => async dispatch => {
     try {
-        const {data} = await axios.put(`${base_user_url}/${userId}`, {subscription: 'premium'});
+        const {data} = await axios.put(`${base_user_url}/${userId}`, {subscription: 'premium'},
+            { headers: {
+                    'Content-Type': 'application/json',
+                    'authorization': 'Bearer' + getToken()
+            }});
         let loggedInUser = JSON.parse(window.localStorage.getItem('loggedInUser'));
         loggedInUser.user.subscription = 'premium';
         window.localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
-        dispatch({type:SET_PREMIUM});
+        dispatch({type: SET_PREMIUM});
         toast.success(`You are now a premium user ${data.user.name}`);
     } catch (e) {
         toast.warn('Operation Failed!');

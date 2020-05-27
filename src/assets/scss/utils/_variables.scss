@@ -12,11 +12,3 @@ $swatch_8: #c5bdbd;
 $box-shadow-purple: 1px 2px 5px rgba(166, 119, 255, 0.62);
 $box-shadow-white: 2px 4px 5px rgba(255, 255, 255, 0.62);
 
-
-//breakpoints map
-$breakpoints: (
-        'small': (min-width: 768px),
-        'medium': (min-width: 1024px),
-        'large': (min-width: 1440px),
-        'huge': (min-width: 1920px),
-);
